@@ -1,0 +1,32 @@
+<html>
+<head>
+	<link rel="SHORTCUT ICON" href="/images/logo.jpg">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="keywords" content="search, share">
+	<meta name="description" content="search and share">
+	
+	<title>Search & Share</title>
+	<link href="/stylesheets/base.css" media="screen" rel="stylesheet" type="text/css" />
+	<script>
+		function focus_query() {document.getElementById('q').focus();}
+	</script>
+</head>
+<body style="min-width: 1000px;" onload="focus_query()">
+	<div id="search_box">
+		<div id="logo">
+			<img src="/images/logo.jpg">
+		</div>
+		<div id="box">
+			<form action="/search" method="get">
+				<h1>We're sorry, but something went wrong. Please try again...</h1>
+				<input id="q" name="q" type="text" />
+				<p><input name="commit" type="submit" value="Search" /></p>
+			</form>
+		</div>
+		<div id="copyright">
+			© 2009 www.ishareweb.com
+		</div>
+		<div class="clear"></div>
+	</div>
+</body>
+</html>

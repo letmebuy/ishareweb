@@ -1,0 +1,5 @@
+# Deflate
+AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css application/x-javascript text/javascript
+BrowserMatch ^Mozilla/4 gzip-only-text/html
+BrowserMatch ^Mozilla/4.0[678] no-gzip
+BrowserMatch \bMSIE !no-gzip !gzip-only-text/html

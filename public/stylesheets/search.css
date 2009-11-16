@@ -1,0 +1,101 @@
+body {line-height:normal;margin:0;padding:0;background:white;font-family:arial,sans-serif;}
+div {line-height:normal;margin:0;padding:0;}
+
+div,td,.n a,.n a:visited{color:#000}
+.ts td,.tc{padding:0}
+.ts,.tb{border-collapse:collapse}
+.ti{display:inline}
+.ti{display:inline-table}
+.hd{position:absolute;width:1px;height:1px;top:-1000em;overflow:hidden}
+.f{color:#00f}
+.flc,a.fl{color:#00f}
+a,.w,.q:visited,.q:active,.q,.b a,.b a:visited{color:#00c}
+a:visited{color:#639}
+a:active{color:#00f}
+.t{background:#fff;color:#000;padding:5px 1px 4px}
+.bb{border-bottom:1px solid #369}
+.bt{border-top:1px solid #369}
+.j{width:45em}
+.h{color:#36c}
+.i{color:#00f}
+.a{color:green}
+.z{display:none}
+div.n{margin-top:1ex}
+.n a,.n .i{font-size:10pt}
+.n .i,.b a{font-weight:bold}
+#navbar a{display:block}
+.std{font-size:82%}
+.xsm{font-size:67%}
+#np,#nn,.nr,#logo span,.ch{cursor:pointer;cursor:hand}
+.ta{padding:3px 3px 3px 5px}
+.sl,.r{display:inline;font-weight:normal;margin:0}
+.sl{font-size:84%}
+.r{font-size:100%}
+.e{margin:.75em 0}
+.sm{display:block;margin:0;margin-left:40px}
+.slk td{padding-top:5px;padding-left:40px;vertical-align:top;font-size:84%}
+.slk div{text-indent:-10px;padding-left:10px}
+.csb,.n div,#logo span{background:url(/images/nav_logo3.png) no-repeat;height:26px;overflow:hidden}
+.n .nr{background-position:-60px 0;width:16px}#np{width:44px}
+#nf{background-position:-26px 0;width:18px}
+#nc{background-position:-44px 0;width:16px}
+#nn{margin-right:34px;width:66px}
+#nl{width:42px}
+#nn,#nl{background-position:-76px 0}
+.ss{background:url(/images/nav_logo3.png) no-repeat;background-position:0 -87px;display:block;left:0;overflow:hidden;position:absolute;top:0}
+.cps{overflow:hidden;height:18px;width:114px}
+em{font-weight:bold;font-style:normal}
+td,div,.p,a{font-family:arial,sans-serif}
+.g{margin:1em 0}
+#sd{font-size:84%;font-weight:bold}
+#ap{font-size:64%}
+.ra{border:1px solid #369;margin-top:1ex;margin-left:1em}
+
+.search_box {height:82px;top:0;width:100%;}
+.search_box .logo {float:left;padding:0 0 0 20px;}
+.search_box .box {float:left;padding:20px 0 0 40px;}
+.search_box .help {float:right;padding:10px 20px 0 0;font-size:12px;}
+.search_box .help a{padding-right:10px;}
+div#fancy_div {background:none;}
+div#fancy_div p{padding:20px 10px 1px 10px;text-align:center;color:#3b5998;font-size:1em;font-family:"comic sans ms","Lucida Grande",Tahoma,Verdana,Arial,sans-serif;}
+
+#q {font-size:15px;margin:0;padding:8px 0 8px 8px;width:400px;line-height:normal;border:1px solid #666;font-family:arial,sans-serif;vertical-align:middle;}
+#search {vertical-align:middle;}
+
+.search_spacer {background:#F0F7F9 none repeat scroll 0 0;border-top:1px solid red;}
+.search_spacer .query_part {float:right;padding:3px 20px 3px 0;font-size:12px;}
+.search_spacer .query_part a{padding-right:10px;}
+.inverted_search_spacer {border-top:1px solid red;}
+.iframe {margin-right:15px;}
+h1{ font-size: 100%; color: #f00; line-height: 1em;}
+.clear {clear:both;}
+
+.gsc-search-box {display:none;}
+.gsc-tabsArea {display:none;}
+.gsc-resultsHeader {display:none;}
+
+#search_results {padding-left:30px;}
+.gsc-wrapper {width:69%;}
+.gsc-resultsbox-visible {margin-top:20px;}
+.gsc-webResult {margin-top:10px;}
+.gs-webResult {padding-left:8px;padding-right:3px;}
+.gs-title {font-size:14px;}
+.gs-result .gs-snippet {width:90%;}
+.gsc-cursor-box {margin-top:40px;padding-bottom:40px;text-align:center;font-size:1.3em;}
+.gsc-cursor .gsc-cursor-page {margin-right:15px !important;}
+.gs-result .share {position:relative;margin-top:0;height:32px;text-align:right;bottom:10px;right:10px;visibility:hidden;}
+
+#powered_by{color:#666;font-size:11px;margin-left:10px;vertical-align:middle;}
+#powered_by img {border:none;vertical-align:text-top;}
+
+/*Addthis*/
+
+#at15s_head {margin:3px;}
+#at16pf {display:none;}
+
+/*Suggestions*/
+
+.ac_results {border: 1px solid gray;background-color: white;padding: 0;margin: 0;list-style: none;position: absolute;z-index: 10000;display: none;width:408px;}
+.ac_results li {padding: 2px 5px;white-space: nowrap;color: #101010;text-align: left;font-size:15px;}
+.ac_results li.ac_over {cursor: pointer;background-color: #336CCF;color: white;}
+.ac_match {text-decoration: underline;color: black;}

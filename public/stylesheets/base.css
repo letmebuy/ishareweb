@@ -1,0 +1,12 @@
+body {line-height:normal;margin:0;padding:0;background:white;font-family:arial,sans-serif;}
+div {line-height:normal;margin:0;padding:0;}
+#search_box {height:auto;width:100%;text-align:center;padding-top:5em;}
+#q {font-size:15px;margin:0;padding:8px 0 8px 8px;width:400px;line-height:normal;border:1px solid #666;font-family:arial,sans-serif;}
+#copyright{margin-top:5em;font-size:11px;}
+h1{ font-size: 100%; color: #f00; line-height: 1em;}
+.clear {clear:both;}
+.ac_results {border: 1px solid gray;background-color: white;padding: 0;margin: 0;list-style: none;position: absolute;z-index: 10000;display: none;width:408px;}
+.ac_results li {padding: 2px 5px;white-space: nowrap;color: #101010;text-align: left;font-size:15px;}
+.ac_results li.ac_over {cursor:pointer;background-color:#336CCF;color:white;}
+.ac_match {text-decoration:underline;color:black;}
+
