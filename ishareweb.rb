@@ -14,7 +14,7 @@ get '/search' do
   @query = params[:q]
   return erb(:index) if(@query.nil? || @query.empty?)
   @results = Google.results(@query)
-  erb(:friends_search)
+  erb(:search)
 end
 
 error do
