@@ -5,8 +5,8 @@
 <head>
 	<link rel="SHORTCUT ICON" href="/images/logo.jpg">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta name="keywords" content="<%= CGI.escapeHTML(@results.collect { |result| result.keyterms }.join(",")) %>">
-	<meta name="description" content="<%= CGI.escapeHTML(@results.collect { |result| result.keyterms }.join(",")) %>">
+	<meta name="keywords" content="<%= CGI.escapeHTML(@results.collect { |result| result.title_no_formatting }.join(",")) %>">
+	<meta name="description" content="<%= CGI.escapeHTML(@results.collect { |result| result.title_no_formatting }.join(",")) %>">
 	
 	<title>Search & Share <%= @query %></title>
 	<link rel="stylesheet" type="text/css" href="/fancybox/jquery.fancybox.css" media="screen" />
@@ -64,12 +64,12 @@
 		<script type="text/javascript" src="/javascripts/suggest.js"></script>		
 		<script type="text/javascript" src="/javascripts/search.js"></script>		
 	</div>
-	<!-- Currently turned off -->
+	
 	<div id="friends">
 		<!-- Include the Google Friend Connect javascript library. -->
 		<script type="text/javascript" src="http://www.google.com/friendconnect/script/friendconnect.js"></script>
 		<!-- Define the div tag where the gadget will be inserted. -->
-		<div id="div-7021736693481800588"></div>
+		<div id="div-3316131296432893454"></div>
 		<!-- Render the gadget into a div. -->
 		<script type="text/javascript">
 		var skin = {};
@@ -85,12 +85,12 @@
 		skin['CONTENT_SECONDARY_TEXT_COLOR'] = '#666666';
 		skin['CONTENT_HEADLINE_COLOR'] = '#333333';
 		skin['POSITION'] = 'bottom';
-		skin['DEFAULT_COMMENT_TEXT'] = '-- share your opinion --';
-		skin['HEADER_TEXT'] = 'Your Opinion';
+		skin['DEFAULT_COMMENT_TEXT'] = '- add your comment here -';
+		skin['HEADER_TEXT'] = 'Comments';
 		google.friendconnect.container.setParentUrl('/' /* location of rpc_relay.html and canvas.html */);
 		google.friendconnect.container.renderSocialBar(
-		 { id: 'div-7021736693481800588',
-		   site: '02948475326062453393',
+		 { id: 'div-3316131296432893454',
+		   site: '02160604291634336254',
 		   'view-params':{"scope":"SITE","features":"video,comment","showWall":"true"}
 		 },
 		  skin);

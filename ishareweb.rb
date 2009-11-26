@@ -3,8 +3,10 @@ require 'sinatra'
 require 'open-uri'
 require 'cgi'
 require 'json'
-require 'lib/result'
 require 'lib/google'
+require 'lib/result'
+require 'lib/yahoo'
+require 'lib/yahoo_result'
 
 get '/' do
   erb :index
@@ -13,7 +15,7 @@ end
 get '/search' do
   @query = params[:q]
   return erb(:index) if(@query.nil? || @query.empty?)
-  @results = Google.results(@query)
+  @results = Yahoo.results(@query)
   erb(:search)
 end
 
