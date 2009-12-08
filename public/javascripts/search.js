@@ -49,9 +49,9 @@ $(document).ready(function(){
 	var customSearchControl = new google.search.CustomSearchControl('002561000277545296260:kfq1eeyulty');
 	customSearchControl.setSearchCompleteCallback(this, this.searchComplete);
 	customSearchControl.setResultSetSize(google.search.Search.LARGE_RESULTSET);
-	customSearchControl.setLinkTarget(google.search.Search.LINK_TARGET_PARENT)	
+	customSearchControl.setLinkTarget(google.search.Search.LINK_TARGET_PARENT);
     customSearchControl.draw('search_results');
-
+	
 	showLoading();
 	window.setTimeout( function(){
 		customSearchControl.execute($('#executed_query').val())
