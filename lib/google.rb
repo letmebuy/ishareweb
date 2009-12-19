@@ -12,7 +12,7 @@ class Google
   end
   
   def self.url(query)
-    "http://ajax.googleapis.com/ajax/services/search/web?v=1.0&q=#{CGI.escape(query)}&key=#{ANOTHER_API_KEY}&rsz=large&gl=gb"
+    "http://ajax.googleapis.com/ajax/services/search/web?v=1.0&q=#{CGI.escape(query)}&key=#{ANOTHER_API_KEY}&rsz=large"
   end
   
 end

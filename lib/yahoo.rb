@@ -10,7 +10,7 @@ class Yahoo
   end
 
   def self.url(query)
-    "http://boss.yahooapis.com/ysearch/web/v1/#{CGI.escape(query)}?appid=#{ANOTHER_APP_ID}&format=json&start=0&region=uk&lang=en&view=keyterms&abstract=long&count=20"
+    "http://boss.yahooapis.com/ysearch/web/v1/#{CGI.escape(query)}?appid=#{ANOTHER_APP_ID}&format=json&start=0&view=keyterms&abstract=long&count=20"
   end
 
 end
