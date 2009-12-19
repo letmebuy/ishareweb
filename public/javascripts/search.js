@@ -1,5 +1,5 @@
 $(document).ready(function(){
-	$("#q").suggest();
+	$("#q").suggest({country: country_code});
 	
 	this.searchComplete = function(searchControl, searcher) {
 		html = '<div class="share">' +

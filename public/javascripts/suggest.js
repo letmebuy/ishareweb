@@ -101,7 +101,7 @@
 			var q = $.trim($input.val());
 			if (q.length >= options.minchars) {
 				
-				jQuery.getJSON(options.google_base_url, {q: q}, function(data) {
+				jQuery.getJSON(options.google_base_url, {q: q, gl: options.country_code}, function(data) {
 					$results.hide();
 					var items = parseSuggestions(data, q);
 					displayItems(items);
@@ -214,7 +214,8 @@
 		options.resultsClass = options.resultsClass || 'ac_results';
 		options.selectClass = options.selectClass || 'ac_over';
 		options.minchars = options.minchars || 2;
-		options.google_base_url = "http://www.google.co.uk/complete/search?callback=?";
+		options.country_code = options.country || 'us';
+		options.google_base_url = "http://www.google.com/complete/search?callback=?";
 
 		this.each(function() {
 			new $.suggest(this, options);

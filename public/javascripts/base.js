@@ -1,4 +1,4 @@
 $(document).ready(function(){
-	$("#q").suggest();
+	$("#q").suggest({country: country_code});
 	$("#q").focus();
 });
