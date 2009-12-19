@@ -54,9 +54,13 @@
 	</div>
 	<div id="scripts">
 		<input type="hidden" id="executed_query" value="<%= CGI.escapeHTML(@query) %>">
-		<script type="text/javascript" src="http://www.google.co.uk/jsapi?key=ABQIAAAAM2Rp1xybAA2YXKy8h70rqxQkyrUjGc-hZsdlyhMhE6gjwkxpthQdMeuzgeBclWJCAqIBJgDshTXWQg"></script>
+		<script type="text/javascript" src="http://www.google.com/jsapi?key=ABQIAAAAM2Rp1xybAA2YXKy8h70rqxQkyrUjGc-hZsdlyhMhE6gjwkxpthQdMeuzgeBclWJCAqIBJgDshTXWQg"></script>
 	    <script type="text/javascript">
+			var country_code = null;
 			google.load("search", "1");
+			if (google.loader.ClientLocation) {
+				country_code = google.loader.ClientLocation.address.country_code;
+			}
 		</script>
 		<script type="text/javascript" src="/javascripts/jquery-1.3.2.min.js"></script>
 		<script type="text/javascript" src="/fancybox/jquery.fancybox-1.2.1.min.js"></script>

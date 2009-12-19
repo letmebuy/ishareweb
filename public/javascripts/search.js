@@ -48,6 +48,10 @@ $(document).ready(function(){
 	
 	var customSearchControl = new google.search.CustomSearchControl('002561000277545296260:kfq1eeyulty');
 	customSearchControl.setSearchCompleteCallback(this, this.searchComplete);
+	wSearcher = customSearchControl.hb;
+	if(wSearcher && country_code) {
+		wSearcher.setRestriction(google.search.Search.RESTRICT_EXTENDED_ARGS, {"gl" : country_code});
+	}
 	customSearchControl.setResultSetSize(google.search.Search.FILTERED_CSE_RESULTSET);
 	customSearchControl.setLinkTarget(google.search.Search.LINK_TARGET_PARENT);
     customSearchControl.draw('search_results');
