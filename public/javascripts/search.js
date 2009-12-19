@@ -50,7 +50,7 @@ $(document).ready(function(){
 	customSearchControl.setSearchCompleteCallback(this, this.searchComplete);
 	wSearcher = customSearchControl.hb;
 	if(wSearcher && country_code) {
-		wSearcher.setRestriction(google.search.Search.RESTRICT_EXTENDED_ARGS, {"gl" : country_code});
+		wSearcher.setRestriction(google.search.Search.RESTRICT_EXTENDED_ARGS, {gl : country_code});
 	}
 	customSearchControl.setResultSetSize(google.search.Search.FILTERED_CSE_RESULTSET);
 	customSearchControl.setLinkTarget(google.search.Search.LINK_TARGET_PARENT);

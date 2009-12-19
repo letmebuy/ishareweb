@@ -214,7 +214,7 @@
 		options.resultsClass = options.resultsClass || 'ac_results';
 		options.selectClass = options.selectClass || 'ac_over';
 		options.minchars = options.minchars || 2;
-		options.google_base_url = "http://www.google.co.uk/complete/search?callback=?"
+		options.google_base_url = "http://www.google.co.uk/complete/search?callback=?";
 
 		this.each(function() {
 			new $.suggest(this, options);
