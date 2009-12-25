@@ -58,9 +58,9 @@ $(document).ready(function(){
 	
 	showLoading();
 	window.setTimeout( function(){
-		customSearchControl.execute($('#executed_query').val())
+		customSearchControl.execute($('#executed_query').val());
 		hideLoading();
-	}, 800)
+	}, 800);
 	
 	$("#help_text").fancybox();
 	
