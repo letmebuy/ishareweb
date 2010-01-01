@@ -12,11 +12,11 @@ $(document).ready(function(){
 		});
 		
 		$(".gsc-results .gs-result").not(".gs-no-results-result").mouseover(function(){
-			$(this).css({"background-color":"#F0F7F9"});
+			$(this).css({"background-color":"#FFE8AA"});
 			$(this).find(".share:first").css("visibility", "visible");
 			
 			rest_of_elems = $(".gsc-results .gs-result").not(this);
-			rest_of_elems.css({"background-color":"#FFFFFF"});
+			rest_of_elems.css({"background-color":"#FFF8DD"});
 			rest_of_elems.find(".share:first").css("visibility", "hidden");
 		});
 
@@ -49,7 +49,7 @@ $(document).ready(function(){
 	var customSearchControl = new google.search.CustomSearchControl('002561000277545296260:kfq1eeyulty');
 	customSearchControl.setSearchCompleteCallback(this, this.searchComplete);
 	wSearcher = customSearchControl.hb;
-	customSearchControl.Ga = 4;
+	customSearchControl.Ga = 5;
 	customSearchControl.xa = 8;
 	if(wSearcher && country_code) {
 		wSearcher.setRestriction(google.search.Search.RESTRICT_EXTENDED_ARGS, {gl : country_code});

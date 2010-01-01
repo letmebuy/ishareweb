@@ -74,10 +74,10 @@ h1{ font-size: 100%; color: #f00; line-height: 1em;}
 .gsc-tabsArea {display:none;}
 .gsc-resultsHeader {display:none;}
 
-#search_results {padding-left:30px;}
-.gsc-wrapper {width:69%;}
-.gsc-resultsbox-visible {margin-top:20px;}
-.gsc-webResult {margin-top:10px;}
+.gsc-thinWrapper{background-color:#FFF8DD;}
+.gsc-adBlock{margin-left:10px;}
+.gsc-resultsbox-visible {margin-left:10px;}
+.gsc-webResult {margin-top:10px;background-color:#FFF8DD;}
 .gs-webResult {padding-left:8px;padding-right:3px;}
 .gs-title {font-size:14px;}
 .gs-result .gs-snippet {width:90%;}
