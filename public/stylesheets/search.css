@@ -77,8 +77,8 @@ h1{ font-size: 100%; color: #f00; line-height: 1em;}
 .gsc-thinWrapper{background-color:#FFF8DD;}
 .gsc-adBlock{margin-left:10px;}
 .gsc-resultsbox-visible {margin-left:10px;}
-.gsc-webResult {margin-top:10px;background-color:#FFF8DD;}
-.gs-webResult {padding-left:8px;padding-right:3px;}
+.gsc-webResult {background-color:#FFF8DD;}
+.gs-webResult {padding:5px 3px 0 5px;}
 .gs-title {font-size:14px;}
 .gs-result .gs-snippet {width:90%;}
 .gsc-cursor-box {margin-top:40px;padding-bottom:40px;text-align:center;font-size:1.3em;}
