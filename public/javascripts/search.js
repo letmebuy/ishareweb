@@ -3,7 +3,6 @@ $(document).ready(function(){
 	
 	this.searchComplete = function(searchControl, searcher) {
 		html = '<div class="share">' +
-				'<a class="iframe"><img src="/images/binoculars.png" width="30" height="30" alt="View" title="View" style="border:0"/></a>' +
 				'<a class="sharing-button" onmouseout="addthis_close()"><image src="/images/share.png" width="30" height="30" alt="Share" title="Share"></a>' +
 				'</div>'
 		
@@ -12,27 +11,14 @@ $(document).ready(function(){
 		});
 		
 		$(".gsc-results .gs-result").not(".gs-no-results-result").mouseover(function(){
-			$(this).css({"background-color":"#FFE8AA"});
 			$(this).find(".share:first").css("visibility", "visible");
-			
 			rest_of_elems = $(".gsc-results .gs-result").not(this);
-			rest_of_elems.css({"background-color":"#FFF8DD"});
 			rest_of_elems.find(".share:first").css("visibility", "hidden");
 		});
 
 		$(".gsc-results .gs-result").not(".gs-no-results-result").each(function(){
 			url = $(this).find("a:first").attr('href')
-			buttons = $(this).find(".share a");
-			preview = buttons[0];
-			share = buttons[1];
-
-			$(preview).attr("href", url);
-			$(preview).fancybox({
-				'frameWidth':900,
-				'frameHeight':500,
-				hideOnContentClick:false,
-				callbackOnStart:function(){$.fn.fancybox.showLoading();}
-			});
+			share = $(this).find(".share a:first")[0];
 			tag = $(".gs-title a:first", $(this))
 			u = tag.attr('href')
 			t = tag.text() + ' (Visit www.IShareWeb.com to Share)';

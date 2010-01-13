@@ -78,12 +78,14 @@ h1{ font-size: 100%; color: #f00; line-height: 1em;}
 .gsc-adBlock{margin-left:7px;}
 .gsc-resultsbox-visible {margin-left:10px;}
 .gsc-webResult {background-color:#FFF8DD;}
-.gs-webResult {padding:5px 3px 0 5px;}
+.gsc-results {padding-top:5px;}
+.gs-webResult {padding:7px 3px 7px 5px;}
+.gs-result a.gs-visibleUrl, .gs-result .gs-visibleUrl {float:left;}
 .gs-title {font-size:14px;}
 .gs-result .gs-snippet {width:90%;}
 .gsc-cursor-box {margin-top:40px;padding-bottom:40px;text-align:center;font-size:1.3em;}
 .gsc-cursor .gsc-cursor-page {margin-right:15px !important;}
-.gs-result .share {position:relative;margin-top:0;height:32px;text-align:right;bottom:10px;right:10px;visibility:hidden;}
+.gs-result .share {position:relative;margin-top:0;height:32px;text-align:right;bottom:10px;margin-left:10px;visibility:hidden;float:left;}
 
 #powered_by{color:#666;font-size:11px;margin-left:10px;vertical-align:middle;}
 #powered_by img {border:none;vertical-align:text-top;}
