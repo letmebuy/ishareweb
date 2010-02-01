@@ -40,7 +40,7 @@ $(document).ready(function(){
 	if(wSearcher && country_code) {
 		wSearcher.setRestriction(google.search.Search.RESTRICT_EXTENDED_ARGS, {gl : country_code});
 	}
-	customSearchControl.setResultSetSize(google.search.Search.FILTERED_CSE_RESULTSET);
+	customSearchControl.setResultSetSize(google.search.Search.LARGE_RESULTSET);
 	customSearchControl.setLinkTarget(google.search.Search.LINK_TARGET_PARENT);
     customSearchControl.draw('search_results');
 	
