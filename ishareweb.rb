@@ -16,6 +16,7 @@ get '/search' do
   @query = params[:q]
   return erb(:index) if(@query.nil? || @query.empty?)
   @results = Yahoo.results(@query)
+  @country = params[:country]
   erb(:search)
 end
 
