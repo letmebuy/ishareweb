@@ -62,7 +62,7 @@ div#fancy_div p{padding:20px 10px 1px 10px;text-align:center;color:#3b5998;font-
 #q {font-size:15px;margin:0;padding:8px 0 8px 8px;width:400px;line-height:normal;border:1px solid #666;font-family:arial,sans-serif;vertical-align:middle;}
 #search {vertical-align:middle;}
 
-.search_spacer {background:#F0F7F9 none repeat scroll 0 0;border-top:1px solid red;}
+.search_spacer {background:#F0F7F9 none repeat scroll 0 0;border-top:1px solid #A72227;}
 .search_spacer .query_part {float:right;padding:3px 20px 3px 0;font-size:12px;}
 .search_spacer .query_part a{padding-right:10px;}
 .inverted_search_spacer {border-top:1px solid red;}
@@ -77,14 +77,14 @@ h1{ font-size: 100%; color: #f00; line-height: 1em;}
 .gsc-adBlock{margin-left:20px;}
 .gsc-resultsbox-visible {margin-left:23px;}
 .gsc-results {padding-top:5px;}
-.gs-webResult {padding:13px 3px 12px 5px;}
+.gs-webResult {padding:15px 3px 12px 5px;}
 .gs-result a.gs-visibleUrl, .gs-result .gs-visibleUrl {float:left;}
 .gs-title {font-size:13px;font-weight:bold;}
 .gs-result .gs-snippet {width:90%;}
 .gsc-cursor-box {margin-top:40px;padding-bottom:40px;text-align:center;font-size:1.3em;}
 .gsc-cursor .gsc-cursor-page {margin-right:15px !important;}
-.share {margin-left:20px;float:left;}
-.share a {color:#A72227;font-weight:bold;}
+.share {margin-right:30px;float:right;}
+.share a {color:#A72227;font-weight:bold;text-decoration:underline;}
 
 #powered_by{color:#666;font-size:11px;margin-left:10px;vertical-align:middle;}
 #powered_by img {border:none;vertical-align:text-top;}
