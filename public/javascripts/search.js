@@ -3,19 +3,14 @@ $(document).ready(function(){
 	
 	this.searchComplete = function(searchControl, searcher) {
 		html = '<div class="share">' +
-				'<a class="sharing-button" onmouseout="addthis_close()"><image src="/images/share.png" width="30" height="30" alt="Share" title="Share"></a>' +
-				'</div>'
+				'<a class="sharing-button" onmouseout="addthis_close()">share</a>' +
+				'</div>' +
+				'<div class="clear"/>'
 		
 		$(".gsc-results .gs-result").not(".gs-no-results-result").each(function(){
 			$(this).append(html)
 		});
 		
-		$(".gsc-results .gs-result").not(".gs-no-results-result").mouseover(function(){
-			$(this).find(".share:first").css("visibility", "visible");
-			rest_of_elems = $(".gsc-results .gs-result").not(this);
-			rest_of_elems.find(".share:first").css("visibility", "hidden");
-		});
-
 		$(".gsc-results .gs-result").not(".gs-no-results-result").each(function(){
 			url = $(this).find("a:first").attr('href')
 			share = $(this).find(".share a:first")[0];
@@ -35,8 +30,10 @@ $(document).ready(function(){
 	var customSearchControl = new google.search.CustomSearchControl('002561000277545296260:kfq1eeyulty');
 	customSearchControl.setSearchCompleteCallback(this, this.searchComplete);
 	wSearcher = customSearchControl.hb;
-	customSearchControl.Ga = 5;
-	customSearchControl.xa = 8;
+	
+	customSearchControl.Ka = 4;
+	customSearchControl.Ba = 8;
+	
 	if(wSearcher && country_code) {
 		wSearcher.setRestriction(google.search.Search.RESTRICT_EXTENDED_ARGS, {gl : country_code});
 	}
