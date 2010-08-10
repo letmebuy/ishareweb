@@ -31,8 +31,8 @@ $(document).ready(function(){
 	customSearchControl.setSearchCompleteCallback(this, this.searchComplete);
 	wSearcher = customSearchControl.hb;
 	
-	customSearchControl.Ka = 4;
-	customSearchControl.Ca = 8;
+	customSearchControl.La = 4;
+	customSearchControl.Da = 8;
 	console.log(customSearchControl);
 	
 	if(wSearcher && country_code) {
