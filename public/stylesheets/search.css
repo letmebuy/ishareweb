@@ -79,12 +79,12 @@ h1{ font-size: 100%; color: #f00; line-height: 1em;}
 .gsc-results {padding-top:5px;}
 .gs-webResult {padding:5px 3px 10px 0;}
 .gs-result a.gs-visibleUrl, .gs-result .gs-visibleUrl {float:left;}
-.gs-title {font-size:13px;font-weight:normal;}
-.gs-result .gs-snippet {width:90%;}
+.gs-title {font-size:12px;font-weight:normal;}
+.gs-result .gs-snippet {width:90%;font-size:12px;}
 .gsc-cursor-box {margin-top:40px;padding-bottom:40px;text-align:center;font-size:1.3em;}
 .gsc-cursor .gsc-cursor-page {margin-right:15px !important;}
 .share {margin-right:30px;float:right;}
-.share a {color:#A72227;font-weight:bold;text-decoration:underline;}
+.share a {color:#A72227;font-weight:normal;text-decoration:underline;}
 
 #powered_by{color:#666;font-size:11px;margin-left:10px;vertical-align:middle;}
 #powered_by img {border:none;vertical-align:text-top;}
