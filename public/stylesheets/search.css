@@ -77,7 +77,7 @@ h1{ font-size: 100%; color: #f00; line-height: 1em;}
 .gsc-adBlock{margin-left:20px;}
 .gsc-resultsbox-visible {margin-left:23px;}
 .gsc-results {padding-top:5px;}
-.gs-webResult {padding:15px 3px 12px 5px;}
+.gs-webResult {padding:5px 3px 10px 0;}
 .gs-result a.gs-visibleUrl, .gs-result .gs-visibleUrl {float:left;}
 .gs-title {font-size:13px;font-weight:normal;}
 .gs-result .gs-snippet {width:90%;}
