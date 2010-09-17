@@ -86,7 +86,7 @@ h1{ font-size: 100%; color: #f00; line-height: 1em;}
 .gs-result .gs-snippet {width:80%;font-size:13px !important;color:#444 !important;padding:0 !important;}
 .gsc-cursor-box {margin:60px 0 !important;text-align:center;font-size:1.3em;border-top:none !important;font-family:Arial !important;}
 .gsc-cursor-box a {font-family:Arial !important;}
-.gsc-cursor .gsc-cursor-page {margin-right:30px !important;}
+.gsc-cursor .gsc-cursor-page {margin-right:30px !important;color:#555 !important;}
 .gsc-cursor .gsc-cursor-current-page {text-shadow:none !important;color:#BF680B !important;background:none !important;font-weight:normal !important;}
 .share {margin-right:30px;float:right;}
 .share a {color:#BF680B;font-weight:normal;text-decoration:underline;}
