@@ -51,12 +51,11 @@ $(document).ready(function(){
 	customSearchControl.draw('search_results');
 
 	// console.log(customSearchControl);
-	customSearchControl.execute($('#executed_query').val());
-	// showLoading();
-	// window.setTimeout( function(){
-	// 	customSearchControl.execute($('#executed_query').val());
-	// 	hideLoading();
-	// }, 800);
+	showLoading();
+	window.setTimeout( function(){
+		customSearchControl.execute($('#executed_query').val());
+		hideLoading();
+	}, 800);
 	
 	$("#help_text").fancybox();
 	
