@@ -41,7 +41,7 @@ $(document).ready(function(){
 	wSearcher = customSearchControl.hb;
 	
 	customSearchControl.na = 4;
-	customSearchControl.ea = 8;
+	customSearchControl.fa = 8;
 	
 	if(wSearcher && country_code) {
 		wSearcher.setRestriction(google.search.Search.RESTRICT_EXTENDED_ARGS, {gl : country_code});
