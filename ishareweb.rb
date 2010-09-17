@@ -21,6 +21,10 @@ get '/search' do
   erb(:search)
 end
 
+get '/privacy' do
+  erb :privacy
+end
+
 get '/:page' do
   page = params[:page]
   redirect '/' if page.nil? || page.empty?

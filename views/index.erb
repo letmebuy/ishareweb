@@ -11,28 +11,26 @@
 	<title>Search & Share</title>
 	<link href="/stylesheets/base.css" media="screen" rel="stylesheet" type="text/css" />
 </head>
-<body style="min-width: 1000px;">
-	<div id="search_box">
-		<div id="logo">
-			<img src="/images/logo.jpg">
-		</div>
-		<div id="box">
-			<form action="/search" method="get">
-				<noscript><h1>Please enable Javascript to use this site.</h1></noscript>
-				<input id="q" name="q" type="text"/>
-				<p><input type="submit" value="Search" /></p>
-			</form>
-		</div>
-		<div id="copyright">
-			© 2009 www.ishareweb.com
-		</div>
-		<div class="clear"></div>
-	</div>
-	
-	<div style='display:none'>
-		Search for things you want, you like or you want to know and Share it with rest of the world using most popular social bookmarking sites. Sharing has never been simpler. Go ahead and own your piece of the web.
-	</div>
-	
+<body style="min-width: 960px;">
+  <div id="main">
+  	<div id="search_box">
+  		<div id="logo">
+  			<img src="/images/logo.jpg">
+  		</div>
+  		<div id="box">
+  			<form action="/search" method="get">
+  				<noscript><h1>Please enable Javascript to use this site.</h1></noscript>
+  				<input id="q" name="q" type="text"/>
+  				<p><input type="submit" value="Search" /></p>
+  			</form>
+  		</div>
+  		<div class="clear"></div>
+  	</div>
+  	<div style='display:none'>
+  		Search for things you want, you like or you want to know and Share it with rest of the world using most popular social bookmarking sites. Sharing has never been simpler. Go ahead and own your piece of the web.
+  	</div>
+  </div>
+  <%= erb :footer, :layout => false %>
 	<div id="scripts">
 		<script type="text/javascript" src="http://www.google.com/jsapi?key=ABQIAAAAM2Rp1xybAA2YXKy8h70rqxQkyrUjGc-hZsdlyhMhE6gjwkxpthQdMeuzgeBclWJCAqIBJgDshTXWQg"></script>
 	    <script type="text/javascript">

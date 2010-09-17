@@ -12,47 +12,48 @@
 	<link rel="stylesheet" type="text/css" href="/fancybox/jquery.fancybox.css" media="screen" />
 	<link rel="stylesheet" type="text/css" href="/stylesheets/search.css?r=4" media="screen" />
 </head>
-<body style="min-width: 1000px;">
-	<div class="search_box">
-		<div class="logo">
-			<a href="/"><img src="/images/logo.jpg" width="100" height="75" alt="Home" title="Home" style="border:0"></a>
-		</div>
-		<div class="box">
-			<form action="/search" method="get" id="search_form">
-				<input id="q" name="q" type="text" value="<%= CGI.escapeHTML(@query) %>" />
-				<input id="search" type="submit" value="Search" />
-				<span id="powered_by">Powered by <img src="/images/poweredby_google.png" alt="Google" title="Google" /></span>
-			</form>
-		</div>
-		<div class="help">
-			<a href="http://www.addthis.com/bookmark.php?v=20" onclick="return addthis_open(this, '', 'http://www.ishareweb.com', 'I Share Web')" onmouseout="addthis_close()" onclick="return addthis_sendto()">Share Me</a>
-			<a id="help_text" href="#help_content">Help</a>
-		</div>
-		<div class="clear"></div>
-	</div>
-	<div class="search_spacer">
-		<div class="clear">&nbsp;</div>
-	</div>
-	<div class="clear"></div>
-	<div id="search_results">
-		<noscript><h1><img src="/images/sad.gif"/> Javascript is disabled. Please enable Javascript to use this site.</h1></noscript>
-	</div>
-	<div style='display:none'>
-		<% @results.each do |result| %>
-		<div style='display:none'>
-			<h1><a href="<%= result.target_url %>"><%= result.title %></a></h1>
-			<p>
-				<%= result.content %>
-				<cite><%= result.display_url %></cite>
-			</p>
-		</div>
-		<% end %>
-	</div>
-	<div id="help_content" style='display:none'>
-		<p>Search for things you want, you like or you want to know and Share it with rest of the world using most popular social bookmarking sites.</p>
-		<p>Sharing has never been simpler. Go ahead and own your piece of the web.</p>
-		<p><img src="/images/smiley.png" /></p>
-	</div>
+<body style="min-width: 960px;">
+  <div id="main">
+  	<div class="search_box">
+  		<div class="logo">
+  			<a href="/"><img src="/images/logo.jpg" width="100" height="75" alt="Home" title="Home" style="border:0"></a>
+  		</div>
+  		<div class="box">
+  			<form action="/search" method="get" id="search_form">
+  				<input id="q" name="q" type="text" value="<%= CGI.escapeHTML(@query) %>" />
+  				<input id="search" type="submit" value="Search" />
+  				<span id="powered_by">Powered by <img src="/images/poweredby_google.png" alt="Google" title="Google" /></span>
+  			</form>
+  		</div>
+  		<div class="help">
+  			<a href="http://www.addthis.com/bookmark.php?v=20" onclick="return addthis_open(this, '', 'http://www.ishareweb.com', 'I Share Web')" onmouseout="addthis_close()" onclick="return addthis_sendto()">Share Me</a>
+  			<a id="help_text" href="#help_content">Help</a>
+  		</div>
+  		<div class="clear"></div>
+  	</div>
+  	<div class="search_spacer">&nbsp;</div>
+  	<div class="clear"></div>
+  	<div id="search_results">
+  		<noscript><h1><img src="/images/sad.gif"/> Javascript is disabled. Please enable Javascript to use this site.</h1></noscript>
+  	</div>
+  	<div style='display:none'>
+  		<% @results.each do |result| %>
+  		<div style='display:none'>
+  			<h1><a href="<%= result.target_url %>"><%= result.title %></a></h1>
+  			<p>
+  				<%= result.content %>
+  				<cite><%= result.display_url %></cite>
+  			</p>
+  		</div>
+  		<% end %>
+  	</div>
+  	<div id="help_content" style='display:none'>
+  		<p>Search for things you want, you like or you want to know and Share it with rest of the world using most popular social bookmarking sites.</p>
+  		<p>Sharing has never been simpler. Go ahead and own your piece of the web.</p>
+  		<p><img src="/images/smiley.png" /></p>
+  	</div>
+  </div>
+  <%= erb :footer, :layout => false %>
 	<div id="scripts">
 		<input type="hidden" id="executed_query" value="<%= CGI.escapeHTML(@query) %>">
 		<script type="text/javascript" src="http://www.google.com/jsapi?key=ABQIAAAAM2Rp1xybAA2YXKy8h70rqxQkyrUjGc-hZsdlyhMhE6gjwkxpthQdMeuzgeBclWJCAqIBJgDshTXWQg"></script>
@@ -74,8 +75,8 @@
 		<script type="text/javascript" src="/javascripts/search.min.js?r=5"></script>
 		<style>
 			.gsc-result {margin-bottom:0;padding:0 !important;}
-			.gsc-thinWrapper {width:69.7%;}
-			.gsc-adBlockVertical {border-left:1px solid #C9D7F1;width:30%;}
+			.gsc-thinWrapperm, .gsc-wrapper {max-width:70%;}
+			.gsc-adBlockVertical {border-left:1px solid #C9D7F1;max-width:29%;padding-left:1%;}
 			.gsc-adBlock {margin-bottom:0px;padding-bottom:5px;}
 		</style>
 	</div>
