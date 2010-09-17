@@ -58,7 +58,7 @@
 		<script type="text/javascript" src="http://www.google.com/jsapi?key=ABQIAAAAM2Rp1xybAA2YXKy8h70rqxQkyrUjGc-hZsdlyhMhE6gjwkxpthQdMeuzgeBclWJCAqIBJgDshTXWQg"></script>
 	    <script type="text/javascript">
 			var country_code = null;
-			google.load("search", "1");
+			google.load("search", "1", {style: google.loader.themes.ESPRESSO});
 			if (google.loader.ClientLocation) {
 				country_code = google.loader.ClientLocation.address.country_code.toLowerCase();
 			}
@@ -71,9 +71,9 @@
 		<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pub=letmebuy"></script>
 		<script type="text/javascript" src="/javascripts/suggest.min.js"></script>		
 		<script type="text/javascript" src="/javascripts/jquery.base64.min.js"></script>		
-		<script type="text/javascript" src="/javascripts/search.min.js?r=3"></script>
+		<script type="text/javascript" src="/javascripts/search.min.js?r=4"></script>
 		<style>
-			.gsc-result {margin-bottom:0;}
+			.gsc-result {margin-bottom:0;padding:0 !important;}
 			.gsc-thinWrapper {width:69.7%;}
 			.gsc-adBlockVertical {border-left:1px solid #C9D7F1;width:30%;}
 			.gsc-adBlock {margin-bottom:0px;padding-bottom:5px;}

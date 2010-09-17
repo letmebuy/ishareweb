@@ -1,4 +1,4 @@
-body {line-height:normal;margin:0;padding:0;background:white;font-family:arial,sans-serif;}
+body {line-height:normal;margin:0;padding:0;background:white;font-family:Verdana;}
 div {line-height:normal;margin:0;padding:0;}
 
 div,td,.n a,.n a:visited{color:#000}
@@ -45,7 +45,7 @@ div.n{margin-top:1ex}
 .ss{background:url(/images/nav_logo3.png) no-repeat;background-position:0 -87px;display:block;left:0;overflow:hidden;position:absolute;top:0}
 .cps{overflow:hidden;height:18px;width:114px}
 em{font-weight:bold;font-style:normal}
-td,div,.p,a{font-family:arial,sans-serif}
+td,div,.p,a{font-family:Verdana}
 .g{margin:1em 0}
 #sd{font-size:84%;font-weight:bold}
 #ap{font-size:64%}
@@ -70,17 +70,18 @@ div#fancy_div p{padding:20px 10px 1px 10px;text-align:center;color:#3b5998;font-
 h1{ font-size: 100%; color: #f00; line-height: 1em;}
 .clear {clear:both;}
 
+.gsc-control-cse {padding:0 10px !important;}
 .gsc-search-box {display:none;}
 .gsc-tabsArea {display:none;}
 .gsc-resultsHeader {display:none;}
 
 .gsc-adBlock{margin-left:20px;}
 .gsc-resultsbox-visible {margin-left:23px;}
-.gsc-results {padding-top:5px;}
+.gsc-results {padding-top:10px;}
 .gs-webResult {padding:5px 3px 10px 0;}
-.gs-result a.gs-visibleUrl, .gs-result .gs-visibleUrl {float:left;}
-.gs-title {font-size:12px;font-weight:normal;}
-.gs-result .gs-snippet {width:80%;font-size:12px;}
+.gs-result a.gs-visibleUrl, .gs-result .gs-visibleUrl {float:left;color:#0E774A !important;padding:0 !important;font-size:12px !important;}
+.gs-title, .gs-title b {font-size:14px !important;color:#03c !important;}
+.gs-result .gs-snippet {width:80%;font-size:13px !important;color:#444 !important;padding:0 !important;}
 .gsc-cursor-box {margin-top:40px;padding-bottom:40px;text-align:center;font-size:1.3em;}
 .gsc-cursor .gsc-cursor-page {margin-right:15px !important;}
 .share {margin-right:30px;float:right;}

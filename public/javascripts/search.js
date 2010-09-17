@@ -27,26 +27,36 @@ $(document).ready(function(){
 		$("#fancy_content").empty();
 	};
 	
+	google.search.b.Ka["http://www.google.com/cse/style/look/espresso.css"].colorBackground = "#FFFFFF";
+	google.search.b.Ka["http://www.google.com/cse/style/look/espresso.css"].colorDomainLink = "#0E774A";
+	google.search.b.Ka["http://www.google.com/cse/style/look/espresso.css"].colorText = "#444444";
+	google.search.b.Ka["http://www.google.com/cse/style/look/espresso.css"].colorTitleLink = "#0033CC";
+	google.search.b.Ka["http://www.google.com/cse/style/look/espresso.css"].fontFamily = "Verdana";
+	google.search.b.Ka["http://www.google.com/cse/style/look/espresso.css"].fontSizeDescription = "13";
+	google.search.b.Ka["http://www.google.com/cse/style/look/espresso.css"].fontSizeDomainLink = "12";
+	google.search.b.Ka["http://www.google.com/cse/style/look/espresso.css"].fontSizeTitle = "14";
+	
 	var customSearchControl = new google.search.CustomSearchControl('002561000277545296260:kfq1eeyulty');
 	customSearchControl.setSearchCompleteCallback(this, this.searchComplete);
 	wSearcher = customSearchControl.hb;
 	
 	customSearchControl.na = 4;
 	customSearchControl.ea = 8;
-	console.log(customSearchControl);
 	
 	if(wSearcher && country_code) {
 		wSearcher.setRestriction(google.search.Search.RESTRICT_EXTENDED_ARGS, {gl : country_code});
 	}
 	customSearchControl.setResultSetSize(google.search.Search.LARGE_RESULTSET);
 	customSearchControl.setLinkTarget(google.search.Search.LINK_TARGET_PARENT);
-    customSearchControl.draw('search_results');
-	
-	showLoading();
-	window.setTimeout( function(){
-		customSearchControl.execute($('#executed_query').val());
-		hideLoading();
-	}, 800);
+	customSearchControl.draw('search_results');
+
+	// console.log(customSearchControl);
+	customSearchControl.execute($('#executed_query').val());
+	// showLoading();
+	// window.setTimeout( function(){
+	// 	customSearchControl.execute($('#executed_query').val());
+	// 	hideLoading();
+	// }, 800);
 	
 	$("#help_text").fancybox();
 	
