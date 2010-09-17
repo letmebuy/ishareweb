@@ -5,17 +5,17 @@ $(document).ready(function(){
 		html = '<div class="share">' +
 				'<a class="sharing-button" onmouseout="addthis_close()">share</a>' +
 				'</div>' +
-				'<div class="clear"/>'
+				'<div class="clear"/>';
 		
 		$(".gsc-results .gs-result").not(".gs-no-results-result").each(function(){
-			$(this).append(html)
+			$(this).append(html);
 		});
 		
 		$(".gsc-results .gs-result").not(".gs-no-results-result").each(function(){
-			url = $(this).find("a:first").attr('href')
 			share = $(this).find(".share a:first")[0];
-			tag = $(".gs-title a:first", $(this))
-			u = tag.attr('href')
+			tag = $(".gs-title a:first", $(this));
+			u = tag.attr('href');
+			u = 'http://ishareweb.com/' + $.base64.encode(u);;
 			t = tag.text() + ' (Visit www.IShareWeb.com to Share)';
 			addthis.button(share, {ui_click:true}, {url: u, title: t, description: t});
 		});

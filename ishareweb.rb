@@ -3,6 +3,7 @@ require 'sinatra'
 require 'open-uri'
 require 'cgi'
 require 'json'
+require "base64"
 require 'lib/google'
 require 'lib/result'
 require 'lib/yahoo'
@@ -18,6 +19,12 @@ get '/search' do
   @results = Yahoo.results(@query)
   @country = params[:country]
   erb(:search)
+end
+
+get '/:page' do
+  page = params[:page]
+  redirect '/' if page.nil? || page.empty?
+  redirect Base64.decode64(page)
 end
 
 error do
