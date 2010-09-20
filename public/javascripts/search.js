@@ -1,4 +1,5 @@
 $(document).ready(function(){
+	var enc = encodeURIComponent||escape;
 	$("#q").suggest({country: country_code});
 	
 	this.searchComplete = function(searchControl, searcher) {
@@ -63,9 +64,13 @@ $(document).ready(function(){
 	
 	$('#search_form').submit(function(){
 		query = $('#q').val();
+		req_uri = ['q=' + enc(query)];
+		if($('#req_uri').val() != '')
+			req_uri.push($('#req_uri').val());
+		
 		$('#executed_query').val(query);
 		$(".share").css("visibility", "hidden");
-		pageTracker._trackPageview('/second/search?q=' + query);
+		pageTracker._trackPageview('/auto/search?' + req_uri.join('&'));
 		customSearchControl.execute(query);
 		return false;
 	});

@@ -14,7 +14,8 @@ get '/' do
 end
 
 get '/search' do
-  @query = params[:q]
+  @query = params.delete('q')
+  @req_uri = params.collect{|key, val| "#{key}=#{CGI.escape(val)}"}.join('&')
   return erb(:index) if(@query.nil? || @query.empty?)
   @results = Yahoo.results(@query)
   @country = params[:country]
