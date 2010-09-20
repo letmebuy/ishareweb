@@ -15,9 +15,9 @@ $(document).ready(function(){
 			share = $(this).find(".share a:first")[0];
 			tag = $(".gs-title a:first", $(this));
 			u = tag.attr('href');
-			u = 'http://ishareweb.com/' + $.base64.encode(u);;
-			t = tag.text() + ' (Visit www.IShareWeb.com to Share)';
-			addthis.button(share, {ui_click:true}, {url: u, title: t, description: t});
+			u = 'http://ishareweb.com/' + $.base64.encode(u);
+			t = tag.text();
+			addthis.button(share, {ui_click:true}, {url: u, title: t, description: 'www.ishareweb.com : ' + t});
 		});
 	};
 	
