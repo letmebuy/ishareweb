@@ -72,13 +72,12 @@ div#fancy_div p{padding:20px 10px 1px 10px;text-align:center;color:#3b5998;font-
 h1{ font-size: 100%; color: #f00; line-height: 1em;}
 .clear {clear:both;}
 
-.gsc-control-cse {padding:0 10px !important;}
+.gsc-control-cse {padding:0 1.9% !important;}
 .gsc-search-box {display:none;}
 .gsc-tabsArea {display:none;}
 .gsc-resultsHeader {display:none;}
 
-.gsc-adBlock{margin-left:20px;}
-.gsc-resultsbox-visible {margin-left:23px;}
+.gsc-resultsbox-visible {padding-left:4px;}
 .gsc-results {padding-top:10px;}
 .gs-webResult {padding:5px 3px 10px 0;}
 .gs-result a.gs-visibleUrl, .gs-result .gs-visibleUrl {float:left;color:#0E774A !important;padding:0 !important;font-size:12px !important;}
