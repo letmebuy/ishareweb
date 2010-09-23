@@ -42,7 +42,10 @@
   		<p><img src="/images/smiley.png" /></p>
   	</div>
   </div>
-  <iframe id="show_site_control" src="<%= @site %>" frameborder="0" style="display:none;position: absolute; background: none repeat scroll 0% 0% transparent; width: 100%; height: 100%; top: 100px; z-index: 1;" noresize="noresize"></iframe>
+  <%
+    site_url = (@site.index('?') ? "#{@site}&iswt=#{Time.now.to_i}" : "#{@site}?iswt=#{Time.now.to_i}")
+  %>
+  <iframe id="show_site_control" src="<%= site_url %>" frameborder="0" style="display:none;position: absolute; background: none repeat scroll 0% 0% transparent; width: 100%; height: 100%; top: 100px; z-index: 1;" noresize="noresize"></iframe>
 	<div id="scripts">
 		<script type="text/javascript" src="http://www.google.com/jsapi?key=ABQIAAAAM2Rp1xybAA2YXKy8h70rqxQkyrUjGc-hZsdlyhMhE6gjwkxpthQdMeuzgeBclWJCAqIBJgDshTXWQg"></script>
 	    <script type="text/javascript">
