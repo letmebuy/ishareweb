@@ -7,18 +7,17 @@ $(document).ready(function(){
 				'<a class="sharing-button" onmouseout="addthis_close()">share</a>' +
 				'</div>' +
 				'<div class="clear"/>';
-		
+
 		$(".gsc-results .gs-result").not(".gs-no-results-result").each(function(){
 			$(this).append(html);
-		});
-		
-		$(".gsc-results .gs-result").not(".gs-no-results-result").each(function(){
 			share = $(this).find(".share a:first")[0];
 			tag = $(".gs-title a:first", $(this));
 			u = tag.attr('href');
 			u = 'http://ishareweb.com/' + $.base64.encode(u);
 			t = tag.text();
 			addthis.button(share, {ui_click:true}, {url: u, title: t, description: 'www.ishareweb.com : ' + t});
+			preview_html = '<a href="' + u + '" style="margin-right:10px"><img src="/images/binocular.png" style="border:0;vertical-align:middle"></a>';
+			$('.gs-visibleUrl', $(this)).prepend(preview_html);
 		});
 	};
 	

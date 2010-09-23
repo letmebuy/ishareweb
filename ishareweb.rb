@@ -9,6 +9,12 @@ require 'lib/result'
 require 'lib/yahoo'
 require 'lib/yahoo_result'
 
+configure :development do
+  require 'sinatra/reloader'
+  Sinatra::Application.register Sinatra::Reloader
+  Sinatra::Application.also_reload "lib/**/*.rb"
+end
+
 get '/' do
   erb :index
 end
@@ -29,7 +35,8 @@ end
 get '/:page' do
   page = params[:page]
   redirect '/' if page.nil? || page.empty?
-  redirect Base64.decode64(page)
+  @site = Base64.decode64(page)
+  erb(:show)
 end
 
 error do

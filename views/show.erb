@@ -5,28 +5,28 @@
 <head>
 	<link rel="SHORTCUT ICON" href="/images/logo.jpg">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta name="keywords" content="<%= CGI.escapeHTML(@results.collect { |result| result.keyterms }.join(",")) %>">
-	<meta name="description" content="<%= CGI.escapeHTML(@results.collect { |result| result.keyterms }.join(",")) %>">
+	<meta name="keywords" content="Search and Share">
+	<meta name="description" content="Search and Share">
 	
-	<title>Search & Share <%= @query %></title>
+	<title>Search & Share</title>
 	<link rel="stylesheet" type="text/css" href="/fancybox/jquery.fancybox.css" media="screen" />
 	<link rel="stylesheet" type="text/css" href="/stylesheets/search.css?r=7" media="screen" />
 </head>
-<body style="min-width: 960px;">
-  <div id="main">
+<body style="margin: 0pt; padding: 0pt; overflow: hidden; height: 100%;">
+  <div style="position: absolute; z-index: 3; width: 100%;">
   	<div class="search_box">
   		<div class="logo">
   			<a href="/"><img src="/images/logo.jpg" width="100" height="75" alt="Home" title="Home" style="border:0"></a>
   		</div>
   		<div class="box">
   			<form action="/search" method="get" id="search_form">
-  				<input id="q" name="q" type="text" value="<%= CGI.escapeHTML(@query) %>" />
+  				<input id="q" name="q" type="text" value="" />
   				<input id="search" type="submit" value="Search" />
   				<span id="powered_by">Powered by&nbsp;<img src="/images/google.png" alt="Google" title="Google" /></span>
   			</form>
   		</div>
   		<div class="help">
-  			<a href="http://www.addthis.com/bookmark.php?v=20" onclick="return addthis_open(this, '', document.location.href, 'Search & Share <%= @query %>')" onmouseout="addthis_close()" onclick="return addthis_sendto()">Share Me</a>
+  			<a href="http://www.addthis.com/bookmark.php?v=20" onclick="return addthis_open(this, '', document.location.href, 'I Share Web')" onmouseout="addthis_close()" onclick="return addthis_sendto()">Share Me</a>
   			<a id="help_text" href="#help_content">Help</a>
   		</div>
   		<div class="clear"></div>
@@ -36,50 +36,27 @@
   	<div id="search_results">
   		<noscript><h1><img src="/images/sad.gif"/> Javascript is disabled. Please enable Javascript to use this site.</h1></noscript>
   	</div>
-  	<div style='display:none'>
-  		<% @results.each do |result| %>
-  		<div style='display:none'>
-  			<h1><a href="<%= result.target_url %>"><%= result.title %></a></h1>
-  			<p>
-  				<%= result.content %>
-  				<cite><%= result.display_url %></cite>
-  			</p>
-  		</div>
-  		<% end %>
-  	</div>
   	<div id="help_content" style='display:none'>
   		<p>Search for things you want, you like or you want to know and Share it with rest of the world using most popular social bookmarking sites.</p>
   		<p>Sharing has never been simpler. Go ahead and own your piece of the web.</p>
   		<p><img src="/images/smiley.png" /></p>
   	</div>
   </div>
-  <%= erb :footer, :layout => false %>
+  <iframe id="show_site_control" src="<%= @site %>" frameborder="0" style="display:none;position: absolute; background: none repeat scroll 0% 0% transparent; width: 100%; height: 100%; top: 0pt; padding-top:100px; z-index: 1;" noresize="noresize"></iframe>
 	<div id="scripts">
-		<input type="hidden" id="executed_query" value="<%= CGI.escapeHTML(@query) %>">
-		<input type="hidden" id="req_uri" value="<%= CGI.escapeHTML(@req_uri) %>">
 		<script type="text/javascript" src="http://www.google.com/jsapi?key=ABQIAAAAM2Rp1xybAA2YXKy8h70rqxQkyrUjGc-hZsdlyhMhE6gjwkxpthQdMeuzgeBclWJCAqIBJgDshTXWQg"></script>
 	    <script type="text/javascript">
 			var country_code = null;
-			google.load("search", "1", {style: google.loader.themes.ESPRESSO});
+			google.load("search", "1");
 			if (google.loader.ClientLocation) {
 				country_code = google.loader.ClientLocation.address.country_code.toLowerCase();
 			}
-			<% if @country %>
-			country_code = '<%= @country %>';
-			<% end %>
 		</script>
 		<script type="text/javascript" src="/javascripts/jquery-1.3.2.min.js"></script>
 		<script type="text/javascript" src="/fancybox/jquery.fancybox-1.2.1.min.js"></script>
 		<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pub=letmebuy"></script>
 		<script type="text/javascript" src="/javascripts/suggest.min.js"></script>		
-		<script type="text/javascript" src="/javascripts/jquery.base64.min.js"></script>		
-		<script type="text/javascript" src="/javascripts/search.min.js?r=10"></script>
-		<style>
-			.gsc-result {margin-bottom:0;padding:0 !important;}
-			.gsc-thinWrapperm, .gsc-wrapper {max-width:70%;}
-			.gsc-adBlockVertical {border-left:1px solid #C9D7F1;max-width:29%;padding-left:1%;}
-			.gsc-adBlock {margin-bottom:0px;padding-bottom:5px;}
-		</style>
+		<script type="text/javascript" src="/javascripts/show.js"></script>
 	</div>
 	
 	<div class="tracker">
