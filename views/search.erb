@@ -39,7 +39,7 @@
   	<div style='display:none'>
   		<% @results.each do |result| %>
   		<div style='display:none'>
-  			<h1><a href="<%= result.target_url %>"><%= result.title %></a></h1>
+  			<h1><a href="http://www.ishareweb.com/<%= Base64.encode64(result.target_url) %>" title="Search and Share: <%= result.title %>"><%= result.title %></a></h1>
   			<p>
   				<%= result.content %>
   				<cite><%= result.display_url %></cite>
