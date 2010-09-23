@@ -10,4 +10,5 @@ $(document).ready(function(){
 		$(this).css('display', 'block');
 		hideLoading();
 	});
+	$("#help_text").fancybox();
 });
