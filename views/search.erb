@@ -26,7 +26,7 @@
   			</form>
   		</div>
   		<div class="help">
-  			<a href="http://www.addthis.com/bookmark.php?v=20" onclick="return addthis_open(this, '', document.location.href, 'Search & Share <%= @query %>')" onmouseout="addthis_close()" onclick="return addthis_sendto()">Share Me</a>
+  			<a id="share_me" href="http://www.addthis.com/bookmark.php?v=20" onclick="return addthis_open(this, '', document.location.href, 'Search & Share <%= @query %>')" onmouseout="addthis_close()" onclick="return addthis_sendto()">Share Me</a>
   			<a id="help_text" href="#help_content">Help</a>
   		</div>
   		<div class="clear"></div>
@@ -73,7 +73,7 @@
 		<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pub=letmebuy"></script>
 		<script type="text/javascript" src="/javascripts/suggest.min.js"></script>		
 		<script type="text/javascript" src="/javascripts/jquery.base64.min.js"></script>		
-		<script type="text/javascript" src="/javascripts/search.min.js?r=10"></script>
+		<script type="text/javascript" src="/javascripts/search.min.js?r=11"></script>
 		<style>
 			.gsc-result {margin-bottom:0;padding:0 !important;}
 			.gsc-thinWrapperm, .gsc-wrapper {max-width:70%;}

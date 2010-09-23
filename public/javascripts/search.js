@@ -63,14 +63,17 @@ $(document).ready(function(){
 	
 	$('#search_form').submit(function(){
 		query = $('#q').val();
+		customSearchControl.execute(query);
+
 		req_uri = ['q=' + enc(query)];
 		if($('#req_uri').val() != '')
 			req_uri.push($('#req_uri').val());
 		
+		addthis.button('#share_me', {ui_click:true}, {url: 'http://www.ishareweb.com/search?' + req_uri.join('&'), title: 'Search and Share: ' + query, description: 'search ' + query + ' and share with the world.'});
+		pageTracker._trackPageview('/auto/search?' + req_uri.join('&'));
+
 		$('#executed_query').val(query);
 		$(".share").css("visibility", "hidden");
-		pageTracker._trackPageview('/auto/search?' + req_uri.join('&'));
-		customSearchControl.execute(query);
 		return false;
 	});
 	
