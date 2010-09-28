@@ -40,7 +40,7 @@ $(document).ready(function(){
 	
 	var customSearchControl = new google.search.CustomSearchControl('002561000277545296260:kfq1eeyulty');
 	customSearchControl.setSearchCompleteCallback(this, this.searchComplete);
-	wSearcher = customSearchControl.hb;
+	wSearcher = customSearchControl.ob;
 	
 	customSearchControl.na = 4;
 	customSearchControl.fa = 8;
