@@ -15,8 +15,8 @@ $(document).ready(function(){
 			u = tag.attr('href');
 			u = 'http://ishareweb.com/' + $.base64.encode(u);
 			t = tag.text();
-			addthis.button(share, {ui_click:true}, {url: u, title: t, description: 'www.ishareweb.com : ' + t});
-			preview_html = '<a title="Search and Share: ' + tag.text() + '" href="' + u + '" style="margin-right:10px"><img src="/images/binocular.png" style="border:0;vertical-align:middle"></a>';
+			addthis.button(share, {ui_click:true}, {url: u + '?src=share', title: t, description: 'www.ishareweb.com : ' + t});
+			preview_html = '<a title="Search and Share: ' + tag.text() + '" href="' + u + '?src=preview" style="margin-right:10px"><img src="/images/binocular.png" style="border:0;vertical-align:middle"></a>';
 			$('.gs-visibleUrl', $(this)).prepend(preview_html);
 		});
 	};
