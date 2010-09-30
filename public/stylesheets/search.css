@@ -112,4 +112,4 @@ h1{ font-size: 100%; color: #f00; line-height: 1em;}
 #footer div.copyright {font-size:smaller;font-family:Arial;color:#777;}
 
 /*Progress*/
-#progress {height:32px;width:32px;background-image:url('/images/progress.gif');z-index:10;position:absolute;left:50%;top:40%;}
+#progress {height:48px;width:48px;background-image:url('/images/progress.gif');z-index:10;position:absolute;left:50%;top:40%;}
