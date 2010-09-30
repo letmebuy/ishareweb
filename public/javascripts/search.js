@@ -1,6 +1,9 @@
 $(document).ready(function(){
 	var enc = encodeURIComponent||escape;
 	$("#q").suggest({country: country_code});
+
+	var showLoading = function(){$('#progress').show();};
+	var hideLoading = function(){$('#progress').hide();};
 	
 	this.searchComplete = function(searchControl, searcher) {
 		html = '<div class="share">' +
@@ -19,10 +22,8 @@ $(document).ready(function(){
 			preview_html = '<a title="Search and Share: ' + tag.text() + '" href="' + u + '?src=preview" style="margin-right:10px"><img src="/images/binocular.png" style="border:0;vertical-align:middle"></a>';
 			$('.gs-visibleUrl', $(this)).prepend(preview_html);
 		});
+		hideLoading();
 	};
-	
-	var showLoading = function(){$('#progress').show();};
-	var hideLoading = function(){$('#progress').hide();};
 	
 	if(google.search.b) {
 		google.search.b.Ka["http://www.google.com/cse/style/look/espresso.css"].colorBackground = "#FFFFFF";
@@ -53,7 +54,6 @@ $(document).ready(function(){
 	showLoading();
 	window.setTimeout( function(){
 		customSearchControl.execute($('#executed_query').val());
-		hideLoading();
 	}, 800);
 	
 	$('#search_form').submit(function(){
