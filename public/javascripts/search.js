@@ -21,11 +21,8 @@ $(document).ready(function(){
 		});
 	};
 	
-	var showLoading = function(){$.fn.fancybox.showLoading();};
-	var hideLoading = function(){
-		$(".fancy_loading").hide();
-		$("#fancy_content").empty();
-	};
+	var showLoading = function(){$('#progress').show();};
+	var hideLoading = function(){$('#progress').hide();};
 	
 	if(google.search.b) {
 		google.search.b.Ka["http://www.google.com/cse/style/look/espresso.css"].colorBackground = "#FFFFFF";
@@ -58,8 +55,6 @@ $(document).ready(function(){
 		customSearchControl.execute($('#executed_query').val());
 		hideLoading();
 	}, 800);
-	
-	$("#help_text").fancybox();
 	
 	$('#search_form').submit(function(){
 		query = $('#q').val();

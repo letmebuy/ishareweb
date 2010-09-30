@@ -9,8 +9,7 @@
 	<meta name="description" content="Search and Share : <%= @site %>">
 	
 	<title>Search & Share : <%= @site %></title>
-	<link rel="stylesheet" type="text/css" href="/fancybox/jquery.fancybox.css" media="screen" />
-	<link rel="stylesheet" type="text/css" href="/stylesheets/search.css?r=7" media="screen" />
+	<link rel="stylesheet" type="text/css" href="/stylesheets/search.css?r=8" media="screen" />
 </head>
 <body style="margin: 0pt; padding: 0pt; overflow: hidden; height: 100%;">
   <div style="position: absolute; z-index: 3; width: 100%;height:100px">
@@ -28,7 +27,6 @@
   		<div class="help">
   		  <a href="http://www.addthis.com/bookmark.php?v=20" class="addthis_button_favorites"><span>Add to Favorites</span></a>
   			<a href="http://www.addthis.com/bookmark.php?v=20" onclick="return addthis_open(this, '', document.location.href, 'I Share Web')" onmouseout="addthis_close()" onclick="return addthis_sendto()">Share Me</a>
-  			<a id="help_text" href="#help_content">Help</a>
   		</div>
   		<div class="clear"></div>
   	</div>
@@ -37,16 +35,12 @@
   	<div id="search_results">
   		<noscript><h1><img src="/images/sad.gif"/> Javascript is disabled. Please enable Javascript to use this site.</h1></noscript>
   	</div>
-  	<div id="help_content" style='display:none'>
-  		<p>Search for things you want, you like or you want to know and Share it with rest of the world using most popular social bookmarking sites.</p>
-  		<p>Sharing has never been simpler. Go ahead and own your piece of the web.</p>
-  		<p><img src="/images/smiley.png" /></p>
-  	</div>
   </div>
   <%
     site_url = (@site.index('?') ? "#{@site}&iswt=#{Time.now.to_i}" : "#{@site}?iswt=#{Time.now.to_i}")
   %>
   <iframe id="show_site_control" src="<%= site_url %>" frameborder="0" style="display:none;position: absolute; background: none repeat scroll 0% 0% transparent; width: 100%; height: 100%; top: 100px; z-index: 1;" noresize="noresize"></iframe>
+  <div id="progress"></div>
 	<div id="scripts">
 		<script type="text/javascript" src="http://www.google.com/jsapi?key=ABQIAAAAM2Rp1xybAA2YXKy8h70rqxQkyrUjGc-hZsdlyhMhE6gjwkxpthQdMeuzgeBclWJCAqIBJgDshTXWQg"></script>
 	    <script type="text/javascript">
@@ -57,10 +51,9 @@
 			}
 		</script>
 		<script type="text/javascript" src="/javascripts/jquery-1.3.2.min.js"></script>
-		<script type="text/javascript" src="/fancybox/jquery.fancybox-1.2.1.min.js"></script>
 		<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pub=letmebuy"></script>
 		<script type="text/javascript" src="/javascripts/suggest.min.js"></script>	
-		<script type="text/javascript" src="/javascripts/show.js?r=1"></script>
+		<script type="text/javascript" src="/javascripts/show.js?r=2"></script>
 	</div>
 	
 	<div class="tracker">

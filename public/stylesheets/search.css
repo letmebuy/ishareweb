@@ -110,3 +110,6 @@ h1{ font-size: 100%; color: #f00; line-height: 1em;}
 #footer .links {margin:30px 0;}
 #footer .links a {padding:0 40px;color:#555;}
 #footer div.copyright {font-size:smaller;font-family:Arial;color:#777;}
+
+/*Progress*/
+#progress {height:32px;width:32px;background-image:url('/images/progress.gif');z-index:10;position:absolute;left:50%;top:40%;}

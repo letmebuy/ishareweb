@@ -9,8 +9,7 @@
 	<meta name="description" content="<%= CGI.escapeHTML(@results.collect { |result| result.keyterms }.join(",")) %>">
 	
 	<title>Search & Share <%= @query %></title>
-	<link rel="stylesheet" type="text/css" href="/fancybox/jquery.fancybox.css" media="screen" />
-	<link rel="stylesheet" type="text/css" href="/stylesheets/search.css?r=7" media="screen" />
+	<link rel="stylesheet" type="text/css" href="/stylesheets/search.css?r=8" media="screen" />
 </head>
 <body style="min-width: 960px;">
   <div id="main">
@@ -28,7 +27,6 @@
   		<div class="help">
   		  <a href="http://www.addthis.com/bookmark.php?v=20" class="addthis_button_favorites" addthis:url="http://www.ishareweb.com" addthis:title="Search and Share"><span>Add to Favorites</span></a>
   			<a id="share_me" href="http://www.addthis.com/bookmark.php?v=20" onclick="return addthis_open(this, '', document.location.href, 'Search & Share <%= @query %>')" onmouseout="addthis_close()" onclick="return addthis_sendto()">Share Me</a>
-  			<a id="help_text" href="#help_content">Help</a>
   		</div>
   		<div class="clear"></div>
   	</div>
@@ -48,13 +46,9 @@
   		</div>
   		<% end %>
   	</div>
-  	<div id="help_content" style='display:none'>
-  		<p>Search for things you want, you like or you want to know and Share it with rest of the world using most popular social bookmarking sites.</p>
-  		<p>Sharing has never been simpler. Go ahead and own your piece of the web.</p>
-  		<p><img src="/images/smiley.png" /></p>
-  	</div>
   </div>
   <%= erb :footer, :layout => false %>
+  <div id="progress"></div>
 	<div id="scripts">
 		<input type="hidden" id="executed_query" value="<%= CGI.escapeHTML(@query) %>">
 		<input type="hidden" id="req_uri" value="<%= CGI.escapeHTML(@req_uri) %>">
@@ -70,11 +64,10 @@
 			<% end %>
 		</script>
 		<script type="text/javascript" src="/javascripts/jquery-1.3.2.min.js"></script>
-		<script type="text/javascript" src="/fancybox/jquery.fancybox-1.2.1.min.js"></script>
 		<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pub=letmebuy"></script>
 		<script type="text/javascript" src="/javascripts/suggest.min.js"></script>		
 		<script type="text/javascript" src="/javascripts/jquery.base64.min.js"></script>		
-		<script type="text/javascript" src="/javascripts/search.min.js?r=14"></script>
+		<script type="text/javascript" src="/javascripts/search.min.js?r=15"></script>
 		<style>
 			.gsc-result {margin-bottom:0;padding:0 !important;}
 			.gsc-thinWrapperm, .gsc-wrapper {max-width:70%;}
