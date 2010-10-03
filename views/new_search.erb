@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<link rel="SHORTCUT ICON" href="/images/logo.jpg">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="keywords" content="<%= CGI.escapeHTML(@results.collect { |result| result.keyterms }.join(",")) %>">
+	<meta name="description" content="<%= CGI.escapeHTML(@results.collect { |result| result.keyterms }.join(",")) %>">
+	
+	<title>Search & Share <%= @query %></title>
+	<link rel="stylesheet" type="text/css" href="/stylesheets/reset.css" media="screen" />
+	<link rel="stylesheet" type="text/css" href="/stylesheets/new_search.css" media="screen" />
+	<script type="text/javascript" src="http://www.google.com/jsapi?key=ABQIAAAAM2Rp1xybAA2YXKy8h70rqxQzZyRVKJ9p5sgsE9r4piU5MPxORBQUljITCdbcFHp9C3qMT6-PAbHNIQ"></script>
+    <script type="text/javascript">
+  		var country_code = null;
+  		google.load("search", "1", {style: google.loader.themes.ESPRESSO});
+  		if (google.loader.ClientLocation) {
+  			country_code = google.loader.ClientLocation.address.country_code.toLowerCase();
+  		}
+  		<% if @country %>
+  		country_code = '<%= @country %>';
+  		<% end %>
+  		var addthis_config =
+      {
+        ui_click:true,
+        data_track_clickbac:true,
+        username:'letmebuy',
+        services_compact:'favorites,email,facebook,twitter,orkut,myspace,reddit,digg,delicious,stumbleupon,googlebuzz,buzz,more'
+      }
+  	</script>
+</head>
+<body style="min-width: 960px;visibility:hidden">
+  <noscript>
+    <style>
+      body {
+        visibility:visible !important;
+      }
+    </style>
+  </noscript>
+  <div id="main">
+  	<div class="search_box">
+  		<div class="logo">
+  			<a href="/"><img src="/images/logo.jpg" width="100" height="75" alt="Home" title="Home" style="border:0"></a>
+  		</div>
+  		<div class="box">
+  			<form action="/search" method="get" id="search_form">
+  				<input id="q" name="q" type="text" value="<%= CGI.escapeHTML(@query) %>" />
+  				<input id="search" type="submit" value="Search" />
+  				<span id="powered_by">Powered by&nbsp;<img src="/images/google.png" alt="Google" title="Google" /></span>
+  			</form>
+  		</div>
+  		<div class="help">
+  		  <a href="http://www.addthis.com/bookmark.php?v=20" class="addthis_button_favorites" addthis:url="http://www.ishareweb.com" addthis:title="Search and Share"><span>Add to Favorites</span></a>
+  			<a id="share_me" href="http://www.addthis.com/bookmark.php?v=20" onclick="return addthis_open(this, '', document.location.href, 'Search & Share <%= @query %>')" onmouseout="addthis_close()">Share Me</a>
+  		</div>
+  		<div class="clear"></div>
+  	</div>
+  	<div class="search_spacer">&nbsp;</div>
+  	<div class="clear"></div>
+	  <% if @results.size == 0 %>
+  		<%= erb :no_results, :layout => false, :locals => {:q => @query}%>
+  	<% else %>
+    	<div id="results">
+    		<% @results.each_with_index do |result, index| %>
+    		<div class="result">
+    			<h1><a href="<%= result.target_url %>" title="<%= result.title %>"><%= result.title %></a></h1>
+    			<div class="desc">
+    				<%= result.content %>
+    			</div>
+    			<div class="info">
+            <a title="Search and Share: <%= result.keyterms %>" href="http://ishareweb.com/<%= Base64.encode64(result.target_url) %>"><img src="/images/binocular.png" style="border: 0pt none; vertical-align: middle;"></a>
+            <cite title="<%= result.long_display_url%>"><%= result.display_url %></cite>
+            <a class="addthis_button" addthis:url="http://ishareweb.com/<%= Base64.encode64(result.target_url) %>" addthis:title="<%= result.keyterms %>" addthis:description="www.ishareweb.com: <%= result.content %>">share</a>
+            <div class="clear"></div>
+    			</div>
+    		</div>
+    		<% if index == 0 %>
+      		<div id="a_result"></div>
+      		<div class="result" id="news"></div>
+    		<% end %>
+    		<% end %>
+    	</div>
+    	<div id="extra">
+    	  <div id="context">
+    	    <div class="head"><div>Context</div></div>
+    	    <ul>
+    	        <li><a href="#">latest</a></li>
+    	        <li><a href="#">jobs</a></li>
+    	    </ul>
+    	  </div>
+    	  <div id="suggestions">
+    	    <div class="head"><div>Related Searches</div></div>
+    	  </div>
+    	</div>
+    	<div class="clear"></div>
+      <%= erb :pagination, :layout => false, :locals => {:q => @query, :total => @total, :page => @page, :parmas => {:country => @country}}%>
+    <% end %>
+  </div>
+  <%= erb :footer, :layout => false %>
+  <div id="progress"></div>
+  <div id="scripts">
+    <script type="text/javascript" src="/javascripts/jquery-1.4.2.min.js"></script>
+    <script type="text/javascript" src="/javascripts/suggest.min.js"></script>
+    <script type="text/javascript" src="/javascripts/new_search.js"></script>
+    <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pub=letmebuy"></script>
+  </div>
+	<div class="tracker">
+		<script type="text/javascript">
+		var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+		document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+		</script>
+		<script type="text/javascript">
+		try {
+		var pageTracker = _gat._getTracker("UA-11591849-1");
+		pageTracker._trackPageview();
+		} catch(err) {}</script>
+	</div>
+</body>
+</html>

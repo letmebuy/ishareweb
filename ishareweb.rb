@@ -15,17 +15,28 @@ configure :development do
   Sinatra::Application.also_reload "lib/**/*.rb"
 end
 
+
+before do
+  @ip_address = @env['REMOTE_ADDR']
+end
+
+helpers do
+  def is_blank?(str)
+    str.nil? || str.empty?
+  end
+end
+
+
 get '/' do
   erb :index
 end
 
 get '/search' do
-  @query = params.delete('q')
-  @req_uri = params.collect{|key, val| "#{key}=#{CGI.escape(val)}"}.join('&')
-  return erb(:index) if(@query.nil? || @query.empty?)
-  @results = Yahoo.results(@query)
-  @country = params[:country]
-  erb(:search)
+  @query = params[:q]
+  @page = (is_blank?(params[:page]) ? 1 : params[:page].to_i)
+  @country = (is_blank?(params[:country]) ? nil : params[:country])
+  @total, @results = Google.results(@query, @page, @ip_address, @country)
+  erb :new_search
 end
 
 get '/privacy' do
