@@ -3,39 +3,40 @@ $(document).ready(function(){
 
 	var e = encodeURIComponent||escape;
 	var query = $('#q').val();
-	var url = "http://search.yahooapis.com/WebSearchService/V1/relatedSuggestion?appid=73Rm8nrV34HYmeZPleyu081x6u8QN9ey1wyk7wXEMtHzUDA6Vr_GcQ2CaucW20wKHA--&results=10&output=json&callback=?&query=" + e(query);
-	var resultContainer = $('#suggestions')
-	$.getJSON(url, function(data){
-						if(data.ResultSet.Result) {
-							html = '<ul>'
-		          $.each(data.ResultSet.Result, function(i,item){
-								html += '<li><a href="http://localhost:4567/search?q=' + item + '">' + item + '</a></li>'
-		          });
-							html += '</ul>'
-							resultContainer.append(html);
-						}
-	});
-	
-	
-	if($('#news').size() > 0) {
-		var news_url = "http://ajax.googleapis.com/ajax/services/search/news?q=" + e($('#q').val()) + "&v=1.0&key=ABQIAAAAM2Rp1xybAA2YXKy8h70rqxQzZyRVKJ9p5sgsE9r4piU5MPxORBQUljITCdbcFHp9C3qMT6-PAbHNIQ&rsz=1&callback=?";
-		$.getJSON(news_url, function(data) {
-			var news = data['responseData']['results'][0];
-			html = '<h1><span style="color:green;margin-right:5px;font-size:14px">News result:</span><a href="' + news.unescapedUrl + '">' + news.title + '</a></h1>'
-			if(news.image && news.image.tbUrl)
-				html += '<div style="margin-right:10px;float:left;overflow:hidden;margin-top:5px"><img style="border:1px solid #999;padding:5px;max-width:80px" src="' + news.image.tbUrl + '"/></div>'
-			html += '<div class="desc">' + news.content + '</div>'
-			html += '<div class="info"><cite>' + news.publisher + '</cite><a class="addthis_button">share</a></div><div class="clear"></div>'
-			$('#news').html(html);
-			addthis.button($('#news a.addthis_button')[0], {}, {url: news.unescapedUrl, title: news.title, description: 'www.ishareweb.com : ' + news.content});
-		})
-	}
-	
 	
 	var showLoading = function(){$('#progress').show();};
 	var hideLoading = function(){$('#progress').hide();$('body').css('visibility', 'visible')};
 	
 	this.searchComplete = function(searchControl, searcher) {
+		var url = "http://search.yahooapis.com/WebSearchService/V1/relatedSuggestion?appid=73Rm8nrV34HYmeZPleyu081x6u8QN9ey1wyk7wXEMtHzUDA6Vr_GcQ2CaucW20wKHA--&results=10&output=json&callback=?&query=" + e(query);
+		var resultContainer = $('#suggestions')
+		$.getJSON(url, function(data){
+							if(data.ResultSet.Result) {
+								html = '<ul>'
+			          $.each(data.ResultSet.Result, function(i,item){
+									html += '<li><a href="http://localhost:4567/search?q=' + item + '">' + item + '</a></li>'
+			          });
+								html += '</ul>'
+								resultContainer.append(html);
+							}
+		});
+
+
+		if($('#news').size() > 0) {
+			var news_url = "http://ajax.googleapis.com/ajax/services/search/news?q=" + e($('#q').val()) + "&v=1.0&key=ABQIAAAAM2Rp1xybAA2YXKy8h70rqxQzZyRVKJ9p5sgsE9r4piU5MPxORBQUljITCdbcFHp9C3qMT6-PAbHNIQ&rsz=1&callback=?";
+			$.getJSON(news_url, function(data) {
+				var news = data['responseData']['results'][0];
+				if(news) {
+					html = '<h1><span style="color:green;margin-right:5px;font-size:14px">News result:</span><a href="' + news.unescapedUrl + '">' + news.title + '</a></h1>'
+					if(news.image && news.image.tbUrl)
+						html += '<div style="margin-right:10px;float:left;overflow:hidden;margin-top:5px"><img style="border:1px solid #999;padding:5px;max-width:80px" src="' + news.image.tbUrl + '"/></div>'
+					html += '<div class="desc">' + news.content + '</div>'
+					html += '<div class="info"><cite>' + news.publisher + '</cite><a class="addthis_button"><span>share</span></a></div><div class="clear"></div>'
+					$('#news').html(html);
+					addthis.button($('#news a.addthis_button')[0], {}, {url: news.unescapedUrl, title: news.title, description: 'www.ishareweb.com : ' + news.content});
+				}
+			})
+		}
 		window.setTimeout(function(){
 			hideLoading();
 		}, 500)
