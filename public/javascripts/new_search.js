@@ -25,8 +25,9 @@ $(document).ready(function(){
 			if(news.image && news.image.tbUrl)
 				html += '<div style="margin-right:10px;float:left;overflow:hidden"><img style="border:1px solid #999;padding:5px" src="' + news.image.tbUrl + '"/></div>'
 			html += '<div class="desc">' + news.content + '</div>'
-			html += '<div class="info"><cite>' + news.publisher + '</cite></div><div class="clear"></div>'
+			html += '<div class="info"><cite>' + news.publisher + '</cite><a class="addthis_button">share</a></div><div class="clear"></div>'
 			$('#news').html(html);
+			addthis.button($('#news a.addthis_button')[0], {}, {url: news.unescapedUrl, title: news.title, description: 'www.ishareweb.com : ' + news.content});
 		})
 	}
 	
