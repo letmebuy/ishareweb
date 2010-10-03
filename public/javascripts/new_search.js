@@ -23,7 +23,7 @@ $(document).ready(function(){
 			var news = data['responseData']['results'][0];
 			html = '<h1><span style="color:green;margin-right:5px;font-size:14px">News result:</span><a href="' + news.unescapedUrl + '">' + news.title + '</a></h1>'
 			if(news.image && news.image.tbUrl)
-				html += '<div style="margin-right:10px;float:left;overflow:hidden"><img style="border:1px solid #999;padding:5px" src="' + news.image.tbUrl + '"/></div>'
+				html += '<div style="margin-right:10px;float:left;overflow:hidden;margin-top:5px"><img style="border:1px solid #999;padding:5px;max-width:80px" src="' + news.image.tbUrl + '"/></div>'
 			html += '<div class="desc">' + news.content + '</div>'
 			html += '<div class="info"><cite>' + news.publisher + '</cite><a class="addthis_button">share</a></div><div class="clear"></div>'
 			$('#news').html(html);
