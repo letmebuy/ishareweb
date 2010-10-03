@@ -100,7 +100,7 @@
   	            disp_name = (type == "search" ? "web" : type)
   	          %>
     	        <% if type == @type %>
-      	        <li><a href="#" class="active"><%= disp_name %></a></li>
+      	        <li><a class="active"><%= disp_name %></a></li>
     	        <% else %>
       	        <li><a href="/<%= type %>?<%= q_string(params)%>"><%= disp_name %></a></li>
     	        <% end %>
