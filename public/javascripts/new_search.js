@@ -14,7 +14,7 @@ $(document).ready(function(){
 							if(data.ResultSet.Result) {
 								html = '<ul>'
 			          $.each(data.ResultSet.Result, function(i,item){
-									html += '<li><a href="http://localhost:4567/search?q=' + item + '">' + item + '</a></li>'
+									html += '<li><a href="http://localhost:4567/search?q=' + item + '&country=' + country_code + '">' + item + '</a></li>'
 			          });
 								html += '</ul>'
 								resultContainer.append(html);

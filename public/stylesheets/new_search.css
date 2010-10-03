@@ -17,6 +17,10 @@ a {color:#0033CC}
 .search_spacer .query_part a{padding-right:10px;}
 .inverted_search_spacer {border-top:1px solid red;}
 
+a.active {
+	color:#555;
+}
+
 #powered_by{color:#666;font-size:11px;margin-left:10px;vertical-align:middle;}
 #powered_by img {border:none;vertical-align:middle;}
 

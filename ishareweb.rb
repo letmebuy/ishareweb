@@ -24,6 +24,10 @@ helpers do
   def is_blank?(str)
     str.nil? || str.empty?
   end
+  
+  def q_string(parmas)
+    parmas.collect {|key, val| "#{key}=#{CGI.escape(val)}"}.join("&")
+  end
 end
 
 
@@ -32,10 +36,20 @@ get '/' do
 end
 
 get '/search' do
+  @type = "search"
   @query = params[:q]
   @page = (is_blank?(params[:page]) ? 1 : params[:page].to_i)
   @country = (is_blank?(params[:country]) ? nil : params[:country])
   @total, @results = Google.results(@query, @page, @ip_address, @country)
+  erb :new_search
+end
+
+get '/latest' do
+  @type="latest"
+  @query = params[:q]
+  @page = (is_blank?(params[:page]) ? 1 : params[:page].to_i)
+  @country = (is_blank?(params[:country]) ? nil : params[:country])
+  @total, @results = Google.latest(@query, @page, @ip_address, @country)
   erb :new_search
 end
 

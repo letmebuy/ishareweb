@@ -49,8 +49,13 @@
   			<a href="/"><img src="/images/logo.jpg" width="100" height="75" alt="Home" title="Home" style="border:0"></a>
   		</div>
   		<div class="box">
-  			<form action="/search" method="get" id="search_form">
+  			<form action="/<%= @type || "search" %>" method="get" id="search_form">
   				<input id="q" name="q" type="text" value="<%= CGI.escapeHTML(@query) %>" />
+  			  <% params.each do |key, val| 
+  			      next if key == "q"
+  			  %>
+    				<input name="<%= key %>" type="hidden" value="<%= CGI.escapeHTML(val) %>" />
+  			  <% end %>
   				<input id="search" type="submit" value="Search" />
   				<span id="powered_by">Powered by&nbsp;<img src="/images/google.png" alt="Google" title="Google" /></span>
   			</form>
@@ -90,8 +95,16 @@
     	  <div id="context">
     	    <div class="head"><div>Context</div></div>
     	    <ul>
-    	        <li><a href="#">web</a></li>
-    	        <li><a href="#">latest</a></li>
+    	      <% ["search", "latest"].each do |type| %>
+  	          <%
+  	            disp_name = (type == "search" ? "web" : type)
+  	          %>
+    	        <% if type == @type %>
+      	        <li><a href="#" class="active"><%= disp_name %></a></li>
+    	        <% else %>
+      	        <li><a href="/<%= type %>?<%= q_string(params)%>"><%= disp_name %></a></li>
+    	        <% end %>
+    	      <% end %>
     	    </ul>
     	  </div>
     	  <div id="suggestions">
@@ -99,7 +112,7 @@
     	  </div>
     	</div>
     	<div class="clear"></div>
-      <%= erb :pagination, :layout => false, :locals => {:q => @query, :total => @total, :page => @page, :parmas => {:country => @country}}%>
+      <%= erb :pagination, :layout => false, :locals => {:total => @total, :page => @page, :parmas => params, :type =>@type}%>
     <% end %>
   </div>
   <%= erb :footer, :layout => false %>

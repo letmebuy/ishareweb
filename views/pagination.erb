@@ -1,17 +1,15 @@
 <% if total > 0 %>
 <div id="pagination">
 	<%
-	  parameters = ["q=#{q}"]
-    parameters += parmas.collect {|key, val| "#{key}=#{val}"} if parmas
 		prev_page = (page == 1 ? page : page - 1)
 		next_page = page + 1
 	%>
 	<% unless page == 1 %>
-	<a href="/search?page=<%= prev_page %>&<%= parameters.join('&') %>">Prev</a>
+	<a href="/<%= type %>?page=<%= prev_page %>&<%= q_string(parmas) %>">Prev</a>
 	<% end %>
 	<span><%= page %></span>
 	<% unless page >= 8 %>
-	<a href="/search?page=<%= next_page %>&<%= parameters.join('&') %>">Next</a>
+	<a href="/<%= type %>?page=<%= next_page %>&<%= q_string(parmas) %>">Next</a>
 	<% end %>
 </div>
 <% end %>
