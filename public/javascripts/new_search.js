@@ -7,9 +7,9 @@ $(document).ready(function(){
 	var showLoading = function(){$('#progress').show();};
 	var hideLoading = function(){$('#progress').hide();$('body').css('visibility', 'visible')};
 	
-	this.searchComplete = function(searchControl, searcher) {
-		var url = "http://search.yahooapis.com/WebSearchService/V1/relatedSuggestion?appid=73Rm8nrV34HYmeZPleyu081x6u8QN9ey1wyk7wXEMtHzUDA6Vr_GcQ2CaucW20wKHA--&results=10&output=json&callback=?&query=" + e(query);
-		var resultContainer = $('#suggestions')
+	var loadSuggestions = function() {
+		url = "http://search.yahooapis.com/WebSearchService/V1/relatedSuggestion?appid=73Rm8nrV34HYmeZPleyu081x6u8QN9ey1wyk7wXEMtHzUDA6Vr_GcQ2CaucW20wKHA--&results=10&output=json&callback=?&query=" + e(query);
+		resultContainer = $('#suggestions')
 		$.getJSON(url, function(data){
 							if(data.ResultSet.Result) {
 								html = '<ul>'
@@ -20,8 +20,9 @@ $(document).ready(function(){
 								resultContainer.append(html);
 							}
 		});
-
-
+	};
+	
+	var loadNews = function() {
 		if($('#news').size() > 0) {
 			var news_url = "http://ajax.googleapis.com/ajax/services/search/news?q=" + e($('#q').val()) + "&v=1.0&key=ABQIAAAAM2Rp1xybAA2YXKy8h70rqxQzZyRVKJ9p5sgsE9r4piU5MPxORBQUljITCdbcFHp9C3qMT6-PAbHNIQ&rsz=1&callback=?";
 			$.getJSON(news_url, function(data) {
@@ -37,6 +38,12 @@ $(document).ready(function(){
 				}
 			})
 		}
+	};
+	
+	var searchComplete = function(searchControl, searcher) {
+		loadNews();
+		loadSuggestions();
+
 		window.setTimeout(function(){
 			hideLoading();
 		}, 500)
@@ -54,7 +61,7 @@ $(document).ready(function(){
 	}
 	
 	var customSearchControl = new google.search.CustomSearchControl('002561000277545296260:kfq1eeyulty');
-	customSearchControl.setSearchCompleteCallback(this, this.searchComplete);
+	customSearchControl.setSearchCompleteCallback(this, searchComplete);
 	wSearcher = customSearchControl.ob;
 	
 	customSearchControl.na = 4;
@@ -70,7 +77,7 @@ $(document).ready(function(){
 		customSearchControl.draw('a_result');
 		customSearchControl.execute(query);
 	} else {
-		hideLoading();
+		searchComplete();
 	}
 
 });
