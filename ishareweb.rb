@@ -41,7 +41,7 @@ get '/search' do
   @page = (is_blank?(params[:page]) ? 1 : params[:page].to_i)
   @country = (is_blank?(params[:country]) ? nil : params[:country])
   @total, @results = Google.results(@query, @page, @ip_address, @country)
-  erb :new_search
+  erb :search
 end
 
 get '/latest' do

@@ -9,73 +9,113 @@
 	<meta name="description" content="<%= CGI.escapeHTML(@results.collect { |result| result.keyterms }.join(",")) %>">
 	
 	<title>Search & Share <%= @query %></title>
-	<link rel="stylesheet" type="text/css" href="/stylesheets/search.css?r=10" media="screen" />
+	<link rel="stylesheet" type="text/css" href="/stylesheets/all.css" media="screen" />
+	<script type="text/javascript" src="http://www.google.com/jsapi?key=ABQIAAAAM2Rp1xybAA2YXKy8h70rqxQzZyRVKJ9p5sgsE9r4piU5MPxORBQUljITCdbcFHp9C3qMT6-PAbHNIQ"></script>
+    <script type="text/javascript">
+  		var country_code = null;
+  		google.load("search", "1", {style: google.loader.themes.ESPRESSO});
+  		if (google.loader.ClientLocation) {
+  			country_code = google.loader.ClientLocation.address.country_code.toLowerCase();
+  		}
+  		<% if @country %>
+  		country_code = '<%= @country %>';
+  		<% end %>
+  		var addthis_config =
+      {
+        ui_click:true,
+        data_track_clickbac:true,
+        username:'letmebuy',
+        services_compact:'favorites,email,facebook,twitter,orkut,myspace,reddit,digg,delicious,stumbleupon,googlebuzz,buzz,more',
+        ui_header_background:'#FFFFFF'
+      }
+  	</script>
+  	<script type="text/javascript" src="/javascripts/all.js"></script>
+    <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pub=letmebuy"></script>
 </head>
-<body style="min-width: 960px;">
+<body style="min-width: 960px;visibility:hidden">
+  <noscript>
+    <style>
+      body {
+        visibility:visible !important;
+      }
+    </style>
+  </noscript>
   <div id="main">
   	<div class="search_box">
   		<div class="logo">
   			<a href="/"><img src="/images/logo.jpg" width="100" height="75" alt="Home" title="Home" style="border:0"></a>
   		</div>
   		<div class="box">
-  			<form action="/search" method="get" id="search_form">
+  			<form action="/<%= @type || "search" %>" method="get" id="search_form">
   				<input id="q" name="q" type="text" value="<%= CGI.escapeHTML(@query) %>" />
+  			  <% params.each do |key, val| 
+  			      next if key == "q"
+  			  %>
+    				<input name="<%= key %>" type="hidden" value="<%= CGI.escapeHTML(val) %>" />
+  			  <% end %>
   				<input id="search" type="submit" value="Search" />
   				<span id="powered_by">Powered by&nbsp;<img src="/images/google.png" alt="Google" title="Google" /></span>
   			</form>
   		</div>
   		<div class="help">
   		  <a href="http://www.addthis.com/bookmark.php?v=20" class="addthis_button_favorites" addthis:url="http://www.ishareweb.com" addthis:title="Search and Share"><span>Add to Favorites</span></a>
-  			<a id="share_me" href="http://www.addthis.com/bookmark.php?v=20" onclick="return addthis_open(this, '', document.location.href, 'Search & Share <%= @query %>')" onmouseout="addthis_close()" onclick="return addthis_sendto()">Share Me</a>
+  			<a id="share_me" href="http://www.addthis.com/bookmark.php?v=20" onclick="return addthis_open(this, '', document.location.href, 'Search & Share <%= @query %>')" onmouseout="addthis_close()">Share Me</a>
   		</div>
   		<div class="clear"></div>
   	</div>
   	<div class="search_spacer">&nbsp;</div>
   	<div class="clear"></div>
-  	<div id="search_results">
-  		<noscript><h1><img src="/images/sad.gif"/> Javascript is disabled. Please enable Javascript to use this site.</h1></noscript>
-  	</div>
-  	<div style='display:none'>
-  		<% @results.each do |result| %>
-  		<div style='display:none'>
-  			<h1><a href="http://www.ishareweb.com/<%= Base64.encode64(result.target_url) %>" title="Search and Share: <%= result.title %>"><%= result.title %></a></h1>
-  			<p>
-  				<%= result.content %>
-  				<cite><%= result.display_url %></cite>
-  			</p>
-  		</div>
-  		<% end %>
-  	</div>
+	  <% if @results.size == 0 %>
+  		<%= erb :no_results, :layout => false, :locals => {:q => @query}%>
+  	<% else %>
+    	<div id="results">
+    		<% @results.each_with_index do |result, index| %>
+    		<div class="result">
+    			<h1><a href="<%= result.target_url %>" title="<%= result.keyterms %>"><%= result.title %></a></h1>
+    			<div class="desc">
+    				<%= result.content %>
+    			</div>
+    			<div class="info">
+            <a title="Search and Share: <%= result.keyterms %>" href="http://ishareweb.com/<%= Base64.encode64(result.target_url) %>"><img src="/images/binocular.png" style="border: 0pt none; vertical-align: middle;"></a>
+            <cite title="<%= result.long_display_url%>"><%= result.display_url %></cite>
+            <a class="addthis_button" addthis:url="http://ishareweb.com/<%= Base64.encode64(result.target_url) %>" addthis:title="<%= result.keyterms %>" addthis:description="www.ishareweb.com: <%= result.content %>"><span>share</span></a>
+            <div class="clear"></div>
+    			</div>
+    		</div>
+    		<% if index == 0 %>
+      		<div id="a_result"></div>
+      		<div class="result" id="news"></div>
+    		<% end %>
+    		<% end %>
+    	</div>
+    	<div id="extra">
+    	  <div id="context">
+    	    <div class="head"><div>Context</div></div>
+    	    <ul>
+    	      <% ["search", "latest"].each do |type| %>
+  	          <%
+  	            disp_name = (type == "search" ? "web" : type)
+  	          %>
+    	        <% if type == @type %>
+      	        <li><a class="active"><%= disp_name %></a></li>
+    	        <% else %>
+      	        <li><a href="/<%= type %>?<%= q_string(params)%>"><%= disp_name %></a></li>
+    	        <% end %>
+    	      <% end %>
+    	    </ul>
+    	  </div>
+    	  <div id="suggestions">
+    	    <div class="head"><div>Related Searches</div></div>
+    	  </div>
+    	</div>
+    	<div class="clear"></div>
+      <%= erb :pagination, :layout => false, :locals => {:total => @total, :page => @page, :parmas => params, :type =>@type}%>
+    <% end %>
   </div>
   <%= erb :footer, :layout => false %>
   <div id="progress"></div>
-	<div id="scripts">
-		<input type="hidden" id="executed_query" value="<%= CGI.escapeHTML(@query) %>">
-		<input type="hidden" id="req_uri" value="<%= CGI.escapeHTML(@req_uri) %>">
-		<script type="text/javascript" src="http://www.google.com/jsapi?key=ABQIAAAAM2Rp1xybAA2YXKy8h70rqxQkyrUjGc-hZsdlyhMhE6gjwkxpthQdMeuzgeBclWJCAqIBJgDshTXWQg"></script>
-	    <script type="text/javascript">
-			var country_code = null;
-			google.load("search", "1", {style: google.loader.themes.ESPRESSO});
-			if (google.loader.ClientLocation) {
-				country_code = google.loader.ClientLocation.address.country_code.toLowerCase();
-			}
-			<% if @country %>
-			country_code = '<%= @country %>';
-			<% end %>
-		</script>
-		<script type="text/javascript" src="/javascripts/jquery-1.3.2.min.js"></script>
-		<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pub=letmebuy"></script>
-		<script type="text/javascript" src="/javascripts/suggest.min.js"></script>		
-		<script type="text/javascript" src="/javascripts/jquery.base64.min.js"></script>		
-		<script type="text/javascript" src="/javascripts/search.min.js?r=20"></script>
-		<style>
-			.gsc-result {margin-bottom:0;padding:0 !important;}
-			.gsc-thinWrapperm, .gsc-wrapper {max-width:70%;}
-			.gsc-adBlockVertical {border-left:1px solid #C9D7F1;max-width:29%;padding-left:1%;}
-			.gsc-adBlock {margin-bottom:0px;padding-bottom:5px;}
-		</style>
-	</div>
-	
+  <div id="scripts">
+  </div>
 	<div class="tracker">
 		<script type="text/javascript">
 		var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
