@@ -39,7 +39,7 @@ get '/search' do
   @type = "search"
   @query = params[:q]
   @page = (is_blank?(params[:page]) ? 1 : params[:page].to_i)
-  @country = (is_blank?(params[:country]) ? nil : params[:country])
+  @country = (is_blank?(params[:country]) ? '' : params[:country])
   @total, @results = Google.results(@query, @page, @ip_address, @country)
   erb :search
 end
