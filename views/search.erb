@@ -9,7 +9,7 @@
 	<meta name="description" content="<%= CGI.escapeHTML(@results.collect { |result| result.keyterms }.join(",")) %>">
 	
 	<title>Search & Share <%= @query %></title>
-	<link rel="stylesheet" type="text/css" href="/stylesheets/all.css?r=1" media="screen" />
+	<link rel="stylesheet" type="text/css" href="/stylesheets/all.css?r=2" media="screen" />
 	<script type="text/javascript" src="http://www.google.com/jsapi?key=ABQIAAAAM2Rp1xybAA2YXKy8h70rqxQzZyRVKJ9p5sgsE9r4piU5MPxORBQUljITCdbcFHp9C3qMT6-PAbHNIQ"></script>
     <script type="text/javascript">
   		var country_code = null;
@@ -76,9 +76,9 @@
     				<%= result.content %>
     			</div>
     			<div class="info">
-            <a title="Search and Share: <%= result.keyterms %>" href="http://ishareweb.com/<%= Base64.encode64(result.target_url) %>"><img src="/images/binocular.png" style="border: 0pt none; vertical-align: middle;"></a>
+            <a title="Search and Share: <%= result.keyterms %>" href="http://ishareweb.com/<%= Base64.encode64(result.target_url) %>?src=preview"><img src="/images/binocular.png" style="border: 0pt none; vertical-align: middle;"></a>
             <cite title="<%= result.long_display_url%>"><%= result.display_url %></cite>
-            <a class="addthis_button" addthis:url="http://ishareweb.com/<%= Base64.encode64(result.target_url) %>" addthis:title="<%= result.keyterms %>" addthis:description="www.ishareweb.com: <%= result.content %>"><span>share</span></a>
+            <a class="addthis_button" addthis:url="http://ishareweb.com/<%= Base64.encode64(result.target_url) %>?src=share" addthis:title="<%= result.keyterms %>" addthis:description="www.ishareweb.com: <%= result.content %>"><span>share</span></a>
             <div class="clear"></div>
     			</div>
     		</div>
