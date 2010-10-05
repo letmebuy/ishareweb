@@ -11,7 +11,7 @@ $(document).ready(function(){
 		url = "http://search.yahooapis.com/WebSearchService/V1/relatedSuggestion?appid=73Rm8nrV34HYmeZPleyu081x6u8QN9ey1wyk7wXEMtHzUDA6Vr_GcQ2CaucW20wKHA--&results=10&output=json&callback=?&query=" + e(query);
 		resultContainer = $('#suggestions')
 		$.getJSON(url, function(data){
-							if(data.ResultSet.Result) {
+							if(data.ResultSet && data.ResultSet.Result) {
 								html = '<ul>'
 			          $.each(data.ResultSet.Result, function(i,item){
 									html += '<li><a href="http://ishareweb.com/search?q=' + item + '&country=' + country_code + '&src=related">' + item + '</a></li>'

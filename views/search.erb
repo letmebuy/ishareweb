@@ -29,7 +29,7 @@
         ui_header_background:'#FFFFFF'
       };
   	</script>
-  	<script type="text/javascript" src="/javascripts/all.js?r=2"></script>
+  	<script type="text/javascript" src="/javascripts/all.js?r=3"></script>
     <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pub=letmebuy"></script>
 </head>
 <body style="min-width: 960px;visibility:hidden">
@@ -50,7 +50,7 @@
   			  <% params.each do |key, val| 
   			      next if key == "q"
   			  %>
-    				<input name="<%= key %>" type="hidden" value="<%= CGI.escapeHTML(val) %>" />
+    				<input name="<%= key %>" type="hidden" value="<%= CGI.escapeHTML(val || "") %>" />
   			  <% end %>
   				<input id="search" type="submit" value="Search" />
   				<span id="powered_by">Powered by&nbsp;<img src="/images/google.png" alt="Google" title="Google" /></span>

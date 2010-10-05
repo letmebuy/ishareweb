@@ -37,7 +37,7 @@ end
 
 get '/search' do
   @type = "search"
-  @query = params[:q]
+  @query = params[:q] || ""
   @page = (is_blank?(params[:page]) ? 1 : params[:page].to_i)
   @country = (is_blank?(params[:country]) ? '' : params[:country])
   @total, @results = Google.results(@query, @page, @ip_address, @country)
@@ -46,7 +46,7 @@ end
 
 get '/latest' do
   @type="latest"
-  @query = params[:q]
+  @query = params[:q] || ""
   @page = (is_blank?(params[:page]) ? 1 : params[:page].to_i)
   @country = (is_blank?(params[:country]) ? nil : params[:country])
   @total, @results = Google.latest(@query, @page, @ip_address, @country)
