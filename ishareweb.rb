@@ -53,6 +53,15 @@ get '/latest' do
   erb :search
 end
 
+get '/answers' do
+  @type="answers"
+  @query = params[:q] || ""
+  @page = (is_blank?(params[:page]) ? 1 : params[:page].to_i)
+  @country = (is_blank?(params[:country]) ? nil : params[:country])
+  @total, @results = Google.answers(@query, @page, @ip_address, @country)
+  erb :search
+end
+
 get '/privacy' do
   erb :privacy
 end
