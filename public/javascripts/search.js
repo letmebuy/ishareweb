@@ -12,9 +12,12 @@ $(document).ready(function(){
 		resultContainer = $('#suggestions')
 		$.getJSON(url, function(data){
 							if(data.ResultSet && data.ResultSet.Result) {
+								param = ["src=related"];
+								if(q_string != '')
+									param.push(q_string);
 								html = '<ul>'
 			          $.each(data.ResultSet.Result, function(i,item){
-									html += '<li><a href="http://ishareweb.com/search?q=' + item + '&country=' + country_code + '&src=related">' + item + '</a></li>'
+									html += '<li><a href="http://ishareweb.com/' + type + '?q=' + e(item) + '&' + param.join('&') + '">' + item + '</a></li>'
 			          });
 								html += '</ul>'
 								resultContainer.append(html);

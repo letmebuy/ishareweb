@@ -26,7 +26,7 @@ helpers do
   end
   
   def q_string(parmas)
-    parmas.collect {|key, val| "#{key}=#{CGI.escape(val)}"}.join("&")
+    parmas.collect {|key, val| "#{key}=#{CGI.escape(val || '')}"}.join("&")
   end
 end
 
