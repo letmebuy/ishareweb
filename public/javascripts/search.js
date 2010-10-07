@@ -46,7 +46,7 @@ $(document).ready(function(){
 
 		window.setTimeout(function(){
 			hideLoading();
-		}, 300)
+		}, 500)
 	};
 	
 	if(google.search.b) {
