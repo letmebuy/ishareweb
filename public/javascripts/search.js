@@ -46,7 +46,7 @@ $(document).ready(function(){
 
 		window.setTimeout(function(){
 			hideLoading();
-		}, 500)
+		}, 300)
 	};
 	
 	if(google.search.b) {
@@ -60,16 +60,13 @@ $(document).ready(function(){
 		google.search.b.Ka["http://www.google.com/cse/style/look/espresso.css"].fontSizeTitle = "14";
 	}
 	
-	var customSearchControl = new google.search.CustomSearchControl('002561000277545296260:kfq1eeyulty');
+	var customSearchControl = new google.search.CustomSearchControl(mycse_id);
 	customSearchControl.setSearchCompleteCallback(this, searchComplete);
 	wSearcher = customSearchControl.ob;
 	
 	customSearchControl.na = 4;
 	customSearchControl.fa = 0;
 	
-	if(wSearcher && country_code) {
-		wSearcher.setRestriction(google.search.Search.RESTRICT_EXTENDED_ARGS, {gl : country_code});
-	}
 	customSearchControl.setResultSetSize(google.search.Search.LARGE_RESULTSET);
 	customSearchControl.setLinkTarget(google.search.Search.LINK_TARGET_PARENT);
 
