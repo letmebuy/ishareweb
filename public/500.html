@@ -12,21 +12,45 @@
 	</script>
 </head>
 <body style="min-width: 1000px;" onload="focus_query()">
-	<div id="search_box">
-		<div id="logo">
-			<img src="/images/logo.jpg">
-		</div>
-		<div id="box">
-			<form action="/search" method="get">
-				<h1>We're sorry, but something went wrong. Please try again...</h1>
-				<input id="q" name="q" type="text" />
-				<p><input name="commit" type="submit" value="Search" /></p>
-			</form>
-		</div>
-		<div id="copyright">
-			© 2009 www.ishareweb.com
-		</div>
-		<div class="clear"></div>
+  <div id="main">
+  	<div id="search_box">
+  		<div id="logo">
+  			<img src="/images/logo.jpg">
+  		</div>
+  		<div id="box">
+  			<form action="/search" method="get">
+  				<h1>We're sorry, but something went wrong. Please try again...</h1>
+  				<input id="q" name="q" type="text" />
+  				<p><input name="commit" type="submit" value="Search" /></p>
+  			</form>
+  		</div>
+  		<div class="clear"></div>
+  	</div>
+  </div>
+  <div class="clear"></div>
+  <div id="footer">
+    <div class="search_spacer">&nbsp;</div>
+    <div class="links">
+      <a href="mailto:contact@jeero.in?subject=Enquiry">Contact Us</a>|
+      <a href="http://blog.jeero.in">Blog</a>|
+      <a href="mailto:feedback@jeero.in?subject=Feedback">Feedback</a>|
+      <a href="/privacy">Privacy Policy</a>
+    </div> 
+    <div class="copyright">
+      Copyright © 2010 Jeero Group. All right reserved
+    </div>
+  </div>
+  
+  <div class="tracker">
+		<script type="text/javascript">
+		var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+		document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+		</script>
+		<script type="text/javascript">
+		try {
+		var pageTracker = _gat._getTracker("UA-11591849-1");
+		pageTracker._trackPageview();
+		} catch(err) {}</script>
 	</div>
 </body>
 </html>
