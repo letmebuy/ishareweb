@@ -5,11 +5,11 @@
 		next_page = page + 1
 	%>
 	<% unless page == 1 %>
-	<a href="/<%= type %>?page=<%= prev_page %>&<%= q_string(parmas) %>">Prev</a>
+	<a href="/<%= type %>?page=<%= prev_page %>&<%= q_string(parmas) %>" rel="nofollow">Prev</a>
 	<% end %>
 	<span><%= page %></span>
 	<% unless page >= 8 %>
-	<a href="/<%= type %>?page=<%= next_page %>&<%= q_string(parmas) %>">Next</a>
+	<a href="/<%= type %>?page=<%= next_page %>&<%= q_string(parmas) %>" rel="nofollow">Next</a>
 	<% end %>
 </div>
 <% end %>
