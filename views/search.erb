@@ -17,13 +17,17 @@
   		if (google.loader.ClientLocation) {
   			country_code = google.loader.ClientLocation.address.country_code.toLowerCase();
   		}
-  		<% if @country %>
-    		country_code = '<%= @country %>';
-  		<% end %>
-  		var type = '<%= @type %>';
-  		var q_string = '<%= q_string(params.reject{|k,v| k == "q"}) %>';
-  		var mycse_id = '<%= (Google::CUSTOM_SEARCH_ENGINE_COUNTRIES[@country] ? Google::CUSTOM_SEARCH_ENGINE_COUNTRIES[@country] : Google::CUSTOM_SEARCH_ENGINE_ALL_WEB) %>';
-  		var addthis_config =
+      <% if @country %>
+      country_code = '<%= @country %>';
+      <% end %>
+      var type = '<%= @type %>';
+      var q_string = '<%= q_string(params.reject{|k,v| k == "q"}) %>';
+      <% if params[:t] %>
+      var mycse_id = '<%= Google::CUSTOM_SEARCH_ENGINE_TEST %>';
+      <% else %>
+      var mycse_id = '<%= (Google::CUSTOM_SEARCH_ENGINE_COUNTRIES[@country] ? Google::CUSTOM_SEARCH_ENGINE_COUNTRIES[@country] : Google::CUSTOM_SEARCH_ENGINE_ALL_WEB) %>';
+      <% end %>
+      var addthis_config =
       {
         ui_click:true,
         data_track_clickback:true,
