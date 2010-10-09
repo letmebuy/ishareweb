@@ -5,24 +5,16 @@
 <head>
 	<link rel="SHORTCUT ICON" href="/images/logo.jpg">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta name="keywords" content="Search and Share : <%= @site %>">
-	<meta name="description" content="Search and Share : <%= @site %>">
+	<meta name="keywords" content="Search and Share : <%= @site %>, <%= @context %>">
+	<meta name="description" content="Search and Share : <%= @site %>, <%= @context %>">
 	
 	<title>Search & Share : <%= @site %></title>
 	<link rel="stylesheet" type="text/css" href="/stylesheets/all.css?r=7" media="screen" />
 </head>
 <body style="margin: 0pt; padding: 0pt; overflow: hidden; height: 100%;">
   <div style="display:none">
-    <% 
-    begin
-      uri = URI.parse(@site)
-      10.times do 
-    %>
-      <h1>Search and Share "<%= uri.path.split("/").join(", ")%>, <%= uri.query.split(/&|=/).join(", ") if uri.query %>" on <%= uri.host %></h1>
-    <% 
-      end
-    rescue => e
-    end %>
+    <h1><%= @context %></h1>
+    <h2>Search and Share <%= @context %> on <%= @site %></h1>
   </div>
   <div style="position: absolute; z-index: 3; width: 100%;height:100px">
   	<div class="search_box">

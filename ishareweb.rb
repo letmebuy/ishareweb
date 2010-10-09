@@ -70,6 +70,7 @@ get '/:page' do
   page = params[:page]
   redirect '/' if page.nil? || page.empty?
   @site = Base64.decode64(page)
+  @context = params[:c] || ""
   erb(:show)
 end
 
