@@ -18,7 +18,7 @@
       uri = URI.parse(@site)
       10.times do 
     %>
-      <h1>Search and Share "<%= uri.path.split("/").join(", ")%>" on <%= uri.host %> with the help of <%= uri.query.split("&").join(",") if uri.query %></h1>
+      <h1>Search and Share "<%= uri.path.split("/").join(", ")%>, <%= uri.query.split(/&|=/).join(", ") if uri.query %>" on <%= uri.host %></h1>
     <% 
       end
     rescue => e
