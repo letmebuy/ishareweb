@@ -55,7 +55,7 @@
   			<form action="/<%= @type || "search" %>" method="get" id="search_form">
   				<input id="q" name="q" type="text" value="<%= CGI.escapeHTML(@query) %>" />
   			  <% params.each do |key, val| 
-  			      next if ["q", "page"].include?(key)
+  			      next if ["q", "page", "src"].include?(key)
   			  %>
     				<input name="<%= key %>" type="hidden" value="<%= CGI.escapeHTML(val || "") %>" />
   			  <% end %>
