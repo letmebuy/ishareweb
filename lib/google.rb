@@ -21,7 +21,7 @@ class Google
     return [0, []] if query.nil? || query.empty?
     result_str = open(url(query, page, ip, country, CUSTOM_SEARCH_ENGINE_ALL_WEB), "User-Agent" => "Ruby/#{RUBY_VERSION}", "Referer" => "http://www.ishareweb.com/").read
     json = JSON.parse(result_str)
-    total_results = json["responseData"]['cursor']['estimatedResultCount'].to_i
+    total_results = (json["responseData"]['cursor'] ? json["responseData"]['cursor']['estimatedResultCount'].to_i : 0)
     results = json["responseData"]["results"] || []
     
     [total_results, results.collect { |result_args| Result.new(result_args) }]
@@ -31,7 +31,7 @@ class Google
     return [0, []] if query.nil? || query.empty?
     result_str = open(url(query, page, ip, country, CUSTOM_SEARCH_ENGINE_LATEST), "User-Agent" => "Ruby/#{RUBY_VERSION}", "Referer" => "http://www.ishareweb.com/").read
     json = JSON.parse(result_str)
-    total_results = json["responseData"]['cursor']['estimatedResultCount'].to_i
+    total_results = (json["responseData"]['cursor'] ? json["responseData"]['cursor']['estimatedResultCount'].to_i : 0)
     results = json["responseData"]["results"] || []
     
     [total_results, results.collect { |result_args| Result.new(result_args) }]
@@ -41,7 +41,7 @@ class Google
     return [0, []] if query.nil? || query.empty?
     result_str = open(url(query, page, ip, country, CUSTOM_SEARCH_ENGINE_ANSWERS), "User-Agent" => "Ruby/#{RUBY_VERSION}", "Referer" => "http://www.ishareweb.com/").read
     json = JSON.parse(result_str)
-    total_results = json["responseData"]['cursor']['estimatedResultCount'].to_i
+    total_results = (json["responseData"]['cursor'] ? json["responseData"]['cursor']['estimatedResultCount'].to_i : 0)
     results = json["responseData"]["results"] || []
     
     [total_results, results.collect { |result_args| Result.new(result_args) }]
