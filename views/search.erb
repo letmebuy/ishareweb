@@ -9,14 +9,14 @@
 	<meta name="description" content="<%= CGI.escapeHTML(@results.collect { |result| result.keyterms }.join(",")) %>">
 	
 	<title>Search & Share <%= @query %></title>
-	<link rel="stylesheet" type="text/css" href="/stylesheets/all.css?r=3" media="screen" />
+	<link rel="stylesheet" type="text/css" href="/stylesheets/all.css?r=4" media="screen" />
 	<script type="text/javascript" src="http://www.google.com/jsapi?key=ABQIAAAAM2Rp1xybAA2YXKy8h70rqxQzZyRVKJ9p5sgsE9r4piU5MPxORBQUljITCdbcFHp9C3qMT6-PAbHNIQ"></script>
     <script type="text/javascript">
-  		var country_code = '';
-  		google.load("search", "1", {style: google.loader.themes.ESPRESSO});
-  		if (google.loader.ClientLocation) {
-  			country_code = google.loader.ClientLocation.address.country_code.toLowerCase();
-  		}
+      var country_code = '';
+      google.load("search", "1", {style: google.loader.themes.ESPRESSO});
+      if (google.loader.ClientLocation) {
+        country_code = google.loader.ClientLocation.address.country_code.toLowerCase();
+      }
       <% if @country %>
       country_code = '<%= @country %>';
       <% end %>
@@ -35,8 +35,8 @@
         services_compact:'favorites,email,facebook,twitter,orkut,myspace,reddit,digg,delicious,stumbleupon,googlebuzz,buzz,more',
         ui_header_background:'#FFFFFF'
       };
-  	</script>
-  	<script type="text/javascript" src="/javascripts/all.js?r=7"></script>
+    </script>
+    <script type="text/javascript" src="/javascripts/all.js?r=7"></script>
     <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pub=letmebuy"></script>
 </head>
 <body style="min-width: 960px;visibility:hidden">
