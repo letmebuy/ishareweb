@@ -5,7 +5,7 @@ a {color:#0033CC}
 .search_box {height:82px;top:0;width:100%;}
 .search_box .logo {float:left;padding:0 0 0 20px;}
 .search_box .box {float:left;padding:20px 0 0 40px;}
-.search_box .help {float:right;padding:10px 20px 0 0;font-size:12px;}
+.search_box .help {float:right;padding:10px 20px 0 0;font-size:12px;text-align:right;}
 .search_box .help a{padding-right:10px;}
 #q {font-size:15px;margin:0;padding:8px 0 8px 8px;width:400px;line-height:normal;border:1px solid #666;font-family:arial,sans-serif;vertical-align:middle;}
 #search {vertical-align:middle;}
