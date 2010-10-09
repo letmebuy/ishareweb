@@ -21,7 +21,7 @@
       country_code = '<%= @country %>';
       <% end %>
       var type = '<%= @type %>';
-      var q_string = '<%= q_string(params.reject{|k,v| ["q", "page"].include?(k)}) %>';
+      var q_string = '<%= q_string(params.reject{|k,v| ["q", "page", "src"].include?(k)}) %>';
       <% if params[:t] %>
       var mycse_id = '<%= Google::CUSTOM_SEARCH_ENGINE_TEST %>';
       <% else %>
