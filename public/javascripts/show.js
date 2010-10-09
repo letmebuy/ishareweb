@@ -8,7 +8,7 @@ $(document).ready(function(){
 		hideLoading();
 	});
 	$('#remove_iframe').click(function(){
-		document.location.href = $('iframe#show_site_control').attr('src');
+		window.location.href = $('iframe#show_site_control').attr('src');
 		return false;
 	});
 });
