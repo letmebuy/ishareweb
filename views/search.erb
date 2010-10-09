@@ -21,7 +21,7 @@
       country_code = '<%= @country %>';
       <% end %>
       var type = '<%= @type %>';
-      var q_string = '<%= q_string(params.reject{|k,v| k == "q"}) %>';
+      var q_string = '<%= q_string(params.reject{|k,v| ["q", "page"].include?(k)}) %>';
       <% if params[:t] %>
       var mycse_id = '<%= Google::CUSTOM_SEARCH_ENGINE_TEST %>';
       <% else %>
@@ -55,7 +55,7 @@
   			<form action="/<%= @type || "search" %>" method="get" id="search_form">
   				<input id="q" name="q" type="text" value="<%= CGI.escapeHTML(@query) %>" />
   			  <% params.each do |key, val| 
-  			      next if key == "q"
+  			      next if ["q", "page"].include?(key)
   			  %>
     				<input name="<%= key %>" type="hidden" value="<%= CGI.escapeHTML(val || "") %>" />
   			  <% end %>
@@ -105,7 +105,7 @@
     	        <% if type == @type %>
       	        <li><a class="active"><%= disp_name %></a></li>
     	        <% else %>
-      	        <li><a href="/<%= type %>?<%= q_string(params)%>"><%= disp_name %></a></li>
+      	        <li><a href="/<%= type %>?<%= q_string(params.reject{|k,v| k == "page"})%>"><%= disp_name %></a></li>
     	        <% end %>
     	      <% end %>
     	    </ul>
@@ -115,7 +115,7 @@
     	  </div>
     	</div>
     	<div class="clear"></div>
-      <%= erb :pagination, :layout => false, :locals => {:total => @total, :page => @page, :parmas => params, :type =>@type}%>
+      <%= erb :pagination, :layout => false, :locals => {:total => @total, :page => @page, :parmas => params.reject{|k, v| k == "page"}, :type =>@type}%>
     <% end %>
   </div>
   <%= erb :footer, :layout => false %>
