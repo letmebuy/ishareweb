@@ -36,7 +36,7 @@
         ui_header_background:'#FFFFFF'
       };
     </script>
-    <script type="text/javascript" src="/javascripts/all.js?r=9"></script>
+    <script type="text/javascript" src="/javascripts/all.js?r=10"></script>
     <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pub=letmebuy"></script>
 </head>
 <body style="min-width: 960px;visibility:hidden">
@@ -69,19 +69,7 @@
   		</div>
   		<div class="clear"></div>
   	</div>
-    <div class="search_spacer">
-      <div id="c_ads" style="display:none">
-      <script type="text/javascript"><!--
-        google_ad_client = "pub-4565193161693491";
-        /* Content Links Ad */
-        google_ad_slot = "7056740386";
-        google_ad_width = 468;
-        google_ad_height = 15;
-        //-->
-        </script>
-        <script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script>
-      </div>
-    </div>
+    <div class="search_spacer">&nbsp;</div>
   	<div class="clear"></div>
 	  <% if @results.size == 0 %>
   		<%= erb :no_results, :layout => false, :locals => {:q => @query}%>

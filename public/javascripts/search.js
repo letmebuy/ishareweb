@@ -5,7 +5,7 @@ $(document).ready(function(){
 	var query = $('#q').val();
 	
 	var showLoading = function(){$('#progress').show();};
-	var hideLoading = function(){$('#progress').hide();$('body').css('visibility', 'visible');$('#c_ads').show();};
+	var hideLoading = function(){$('#progress').hide();$('body').css('visibility', 'visible');};
 	
 	var loadSuggestions = function() {
 		url = "http://search.yahooapis.com/WebSearchService/V1/relatedSuggestion?appid=73Rm8nrV34HYmeZPleyu081x6u8QN9ey1wyk7wXEMtHzUDA6Vr_GcQ2CaucW20wKHA--&results=10&output=json&callback=?&query=" + e(query);
