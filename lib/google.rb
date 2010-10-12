@@ -5,7 +5,7 @@ class Google
   
   CUSTOM_SEARCH_ENGINE_ALL_WEB  = "002561000277545296260:kfq1eeyulty"
   CUSTOM_SEARCH_ENGINE_COUNTRIES = {
-    "uk" => "002561000277545296260:lkuq8eueche",
+    "gb" => "002561000277545296260:lkuq8eueche",
     "us" => "002561000277545296260:q5r6qwsco-k"
   }
   
