@@ -84,7 +84,7 @@
     			<div class="info">
             <a title="Search and Share: <%= result.keyterms %>" href="http://ishareweb.com/<%= CGI.escape(Base64.encode64(result.target_url)) %>?src=preview&c=<%= CGI.escape(@query) %>"><img src="/images/binocular.png" style="border: 0pt none; vertical-align: middle;"></a>
             <cite title="<%= result.long_display_url%>"><%= result.display_url %></cite>
-            <a class="addthis_button" addthis:url="http://ishareweb.com/<%= CGI.escape(Base64.encode64(result.target_url)) %>?src=share" addthis:title="<%= result.keyterms %>" addthis:description="www.ishareweb.com: <%= result.content %>"><span>share</span></a>
+            <a class="addthis_button" addthis:url="http://ishareweb.com/<%= CGI.escape(Base64.encode64(result.target_url)) %>?src=share&c=<%= CGI.escape(@query) %>" addthis:title="<%= result.keyterms %>" addthis:description="www.ishareweb.com: <%= result.content %>"><span>share</span></a>
             <div class="clear"></div>
     			</div>
     		</div>
