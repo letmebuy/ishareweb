@@ -48,7 +48,8 @@ class Google
   end
   
   def self.url(query, page, ip, country, cseid)
-    "http://ajax.googleapis.com/ajax/services/search/web?q=#{CGI.escape(query)}&v=1.0&key=#{API_KEY}&userip=#{ip}&start=#{(page - 1) * 8}&rsz=8&gl=#{country}&cx=#{cseid}"
+    # Removed the country as it was creating problems from the server.
+    "http://ajax.googleapis.com/ajax/services/search/web?q=#{CGI.escape(query)}&v=1.0&key=#{API_KEY}&userip=#{ip}&start=#{(page - 1) * 8}&rsz=8&gl=&cx=#{cseid}"
   end
   
 end
