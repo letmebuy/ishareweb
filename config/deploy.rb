@@ -11,7 +11,7 @@ role :db,  domain, :primary => true
 
 set :local_shared_dirs,   %w(public/uploads)
 
-set :repository,          "git@github.com:letmebuy/I-Share-Web.git"
+set :repository,          "git@github.com:letmebuy/ishareweb.git"
 set :keep_releases,       5
 set :user,                "jeero"
 set :scm_user,            "deployer"
