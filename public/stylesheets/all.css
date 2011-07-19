@@ -32,6 +32,7 @@ a.active {color:#FE8101;}
 .gsc-resultsHeader {display:none;}
 .gsc-resultsbox-visible {display:none !important;}
 .gsc-control-cse {padding:0 !important;max-width:530px !important;border:0 !important;}
+.gsc-adBlock {border:0 !important;}
 /*Results*/
 #results {padding:20px 0 0 20px;max-width:60%;float:left;overflow:hidden;}
 #a_result {margin-bottom:15px;width:100%;background-color:#F7F6FF;padding-left:20px;margin-top:-5px;}

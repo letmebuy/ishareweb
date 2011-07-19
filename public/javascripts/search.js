@@ -54,23 +54,22 @@ $(document).ready(function(){
 		}, 500)
 	};
 	
-	if(google.search.b) {
-		google.search.b.Ka["http://www.google.com/cse/style/look/espresso.css"].colorBackground = "#F7F6FF";
-		google.search.b.Ka["http://www.google.com/cse/style/look/espresso.css"].colorDomainLink = "#0E774A";
-		google.search.b.Ka["http://www.google.com/cse/style/look/espresso.css"].colorText = "#444444";
-		google.search.b.Ka["http://www.google.com/cse/style/look/espresso.css"].colorTitleLink = "#0033CC";
-		google.search.b.Ka["http://www.google.com/cse/style/look/espresso.css"].fontFamily = "Verdana";
-		google.search.b.Ka["http://www.google.com/cse/style/look/espresso.css"].fontSizeDescription = "13";
-		google.search.b.Ka["http://www.google.com/cse/style/look/espresso.css"].fontSizeDomainLink = "12";
-		google.search.b.Ka["http://www.google.com/cse/style/look/espresso.css"].fontSizeTitle = "14";
-	}
+  if(google.search.b) {
+   google.search.b.wb["//www.google.com/cse/style/look/espresso.css"].colorBackground = "#F7F6FF";
+   google.search.b.wb["//www.google.com/cse/style/look/espresso.css"].colorDomainLink = "#0E774A";
+   google.search.b.wb["//www.google.com/cse/style/look/espresso.css"].colorText = "#444444";
+   google.search.b.wb["//www.google.com/cse/style/look/espresso.css"].colorTitleLink = "#0033CC";
+   google.search.b.wb["//www.google.com/cse/style/look/espresso.css"].fontFamily = "Verdana";
+   google.search.b.wb["//www.google.com/cse/style/look/espresso.css"].fontSizeDescription = "13";
+   google.search.b.wb["//www.google.com/cse/style/look/espresso.css"].fontSizeDomainLink = "12";
+   google.search.b.wb["//www.google.com/cse/style/look/espresso.css"].fontSizeTitle = "14";
+  }
 	
 	var customSearchControl = new google.search.CustomSearchControl(mycse_id);
 	customSearchControl.setSearchCompleteCallback(this, searchComplete);
-	wSearcher = customSearchControl.ob;
 	
-	customSearchControl.na = 4;
-	customSearchControl.fa = 0;
+	customSearchControl.Aa = 3;
+	customSearchControl.I = 0;
 	
 	customSearchControl.setResultSetSize(google.search.Search.LARGE_RESULTSET);
 	customSearchControl.setLinkTarget(google.search.Search.LINK_TARGET_PARENT);
