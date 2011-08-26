@@ -29,6 +29,6 @@ after "deploy", "deploy:cleanup"
 namespace :deploy do
   desc "Restart Application"
   task :restart, :roles => :app, :except => { :no_release => true } do
-    run "sudo /etc/init.d/nginx restart"
+    run "touch  #{current_path}/tmp/restart.txt"
   end
 end
