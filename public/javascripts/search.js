@@ -54,23 +54,20 @@ $(document).ready(function(){
 		}, 500)
 	};
 	
-  if(google.search.b && google.search.b.yb) {
-   google.search.b.yb["//www.google.com/cse/style/look/espresso.css"].colorBackground = "#FAFDFF";
-   google.search.b.yb["//www.google.com/cse/style/look/espresso.css"].colorDomainLink = "#0E774A";
-   google.search.b.yb["//www.google.com/cse/style/look/espresso.css"].colorText = "#444444";
-   google.search.b.yb["//www.google.com/cse/style/look/espresso.css"].colorTitleLink = "#0033CC";
-   google.search.b.yb["//www.google.com/cse/style/look/espresso.css"].fontFamily = "Verdana";
-   google.search.b.yb["//www.google.com/cse/style/look/espresso.css"].fontSizeDescription = "13";
-   google.search.b.yb["//www.google.com/cse/style/look/espresso.css"].fontSizeDomainLink = "12";
-   google.search.b.yb["//www.google.com/cse/style/look/espresso.css"].fontSizeTitle = "14";
+  if(google.search.b && google.search.b.Gb) {
+   google.search.b.Gb["//www.google.com/cse/style/look/espresso.css"].colorBackground = "#FAFDFF";
+   google.search.b.Gb["//www.google.com/cse/style/look/espresso.css"].colorDomainLink = "#0E774A";
+   google.search.b.Gb["//www.google.com/cse/style/look/espresso.css"].colorText = "#444444";
+   google.search.b.Gb["//www.google.com/cse/style/look/espresso.css"].colorTitleLink = "#0033CC";
+   google.search.b.Gb["//www.google.com/cse/style/look/espresso.css"].fontFamily = "Verdana";
+   google.search.b.Gb["//www.google.com/cse/style/look/espresso.css"].fontSizeDescription = "13";
+   google.search.b.Gb["//www.google.com/cse/style/look/espresso.css"].fontSizeDomainLink = "12";
+   google.search.b.Gb["//www.google.com/cse/style/look/espresso.css"].fontSizeTitle = "14";
   }
 	
 	var customSearchControl = new google.search.CustomSearchControl(mycse_id);
 	customSearchControl.setSearchCompleteCallback(this, searchComplete);
-	console.log(customSearchControl);
-	customSearchControl.Ca = 3;
-	customSearchControl.I = 0;
-	
+
 	customSearchControl.setResultSetSize(google.search.Search.LARGE_RESULTSET);
 	customSearchControl.setLinkTarget(google.search.Search.LINK_TARGET_PARENT);
 
